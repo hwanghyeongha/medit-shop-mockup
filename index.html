@@ -22,12 +22,15 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
 
 #productPage { display:block; }
 #cartPage { display:none; }
+#checkoutPage { display:none; }
 
+/* HERO */
 .hero-banner { background:linear-gradient(120deg,#7a9e3a 0%,#4a7a3a 30%,#2a5fd4 70%,#1a3fc4 100%); padding:36px 40px; display:flex; align-items:center; justify-content:center; text-align:center; min-height:160px; }
 .hero-text h2 { font-size:26px; font-weight:700; color:#fff; margin-bottom:8px; }
 .hero-text p { font-size:13px; color:rgba(255,255,255,.85); margin-bottom:14px; }
 .hero-text a { font-size:12px; font-weight:700; color:#fff; text-decoration:none; border-bottom:1.5px solid rgba(255,255,255,.6); letter-spacing:.05em; }
 
+/* PRODUCT */
 .product-wrap { max-width:1200px; margin:0 auto; display:flex; padding:30px 40px 80px; }
 .thumb-col { display:flex; flex-direction:column; gap:8px; margin-right:16px; padding-top:4px; }
 .thumb { width:70px; height:70px; border:1.5px solid #e0e0e0; border-radius:4px; background:#f5f5f5; display:flex; align-items:center; justify-content:center; cursor:pointer; }
@@ -55,17 +58,6 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
 .check-btn { padding:12px 28px; background:#2250d9; color:#fff; border:none; font-size:13px; font-weight:700; cursor:pointer; letter-spacing:.08em; text-transform:uppercase; }
 .check-btn:hover { background:#1a3fbb; }
 #serialHint { font-size:12px; color:#555; font-weight:600; margin-bottom:10px; }
-
-#demoLicenseWrap { display:none; margin-bottom:18px; }
-.demo-label { font-size:11px; font-weight:700; color:#374151; text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px; }
-.demo-row { display:flex; border:1.5px solid #E5E7EB; border-radius:8px; overflow:hidden; }
-.demo-row:focus-within { border-color:#2250d9; }
-.demo-input { flex:1; padding:10px 14px; border:none; font-size:13px; color:#374151; outline:none; background:#fff; }
-.demo-input::placeholder { color:#9CA3AF; }
-.demo-check-btn { padding:10px 16px; background:#2250d9; color:#fff; border:none; font-size:12px; font-weight:700; cursor:pointer; letter-spacing:.06em; }
-.demo-check-btn:hover { background:#1a3fbb; }
-#demoMsg { font-size:12px; min-height:18px; margin-top:5px; font-weight:600; }
-
 #addToCartBtn { width:100%; padding:14px; background:#e8e8e8; color:#aaa; border:none; border-radius:2px; font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; cursor:not-allowed; margin-bottom:20px; transition:background .3s, color .3s; }
 #addToCartBtn.active { background:#2250d9; color:#fff; cursor:pointer; }
 #addToCartBtn.active:hover { background:#1a3fbb; }
@@ -75,6 +67,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
 .compat-list li { font-size:13px; color:#444; padding:3px 0; display:flex; gap:6px; }
 .compat-list li::before { content:'•'; flex-shrink:0; }
 
+/* CART */
 #cartPage { min-height:60vh; }
 .cart-wrap { max-width:1100px; margin:0 auto; padding:48px 40px 80px; }
 .cart-title { font-size:32px; font-weight:400; color:#111; text-align:center; margin-bottom:10px; }
@@ -97,6 +90,68 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
 .cart-checkout-btn { width:100%; padding:14px; background:#2250d9; color:#fff; border:none; font-size:13px; font-weight:700; cursor:pointer; letter-spacing:.1em; text-transform:uppercase; margin-bottom:12px; border-radius:2px; }
 .cart-note { font-size:12px; color:#555; text-align:center; line-height:1.5; }
 
+/* CHECKOUT */
+#checkoutPage { min-height:60vh; }
+.checkout-wrap { max-width:960px; margin:0 auto; padding:48px 40px 80px; }
+.checkout-header { display:flex; align-items:center; gap:16px; margin-bottom:32px; }
+.checkout-back { background:none; border:none; cursor:pointer; font-size:13px; color:#2250d9; font-weight:700; display:flex; align-items:center; gap:4px; }
+.checkout-back:hover { opacity:.7; }
+.checkout-title { font-size:26px; font-weight:700; color:#111; }
+.checkout-layout { display:flex; gap:40px; align-items:flex-start; }
+.checkout-form { flex:1; }
+.checkout-section { margin-bottom:28px; }
+.checkout-section-title { font-size:13px; font-weight:700; color:#111; text-transform:uppercase; letter-spacing:.08em; margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid #e8e8e8; }
+.field-row { display:flex; gap:12px; margin-bottom:12px; }
+.field-group { display:flex; flex-direction:column; flex:1; }
+.field-group label { font-size:11px; font-weight:700; color:#374151; text-transform:uppercase; letter-spacing:.06em; margin-bottom:5px; }
+.field-group input, .field-group select { padding:11px 14px; border:1.5px solid #E5E7EB; border-radius:6px; font-size:13px; color:#374151; outline:none; background:#fff; }
+.field-group input:focus, .field-group select:focus { border-color:#2250d9; }
+.field-group input::placeholder { color:#9CA3AF; }
+
+/* Card number with icon */
+.card-input-wrap { position:relative; }
+.card-input-wrap input { width:100%; padding-right:80px; }
+.card-icons { position:absolute; right:10px; top:50%; transform:translateY(-50%); display:flex; gap:4px; }
+.card-icon { width:32px; height:20px; border-radius:3px; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:800; }
+.ci-visa { background:#1a1f71; color:#fff; }
+.ci-mc { background:#eb001b; color:#fff; letter-spacing:-.5px; }
+.ci-amex { background:#2e77bc; color:#fff; }
+
+/* Discount code (same style as demo license) */
+.discount-toggle-btn { background:none; border:none; cursor:pointer; font-size:12px; font-weight:700; color:#2250d9; padding:0; margin-bottom:8px; display:flex; align-items:center; gap:4px; }
+.discount-inner { display:none; }
+.discount-row { display:flex; border:1.5px solid #E5E7EB; border-radius:8px; overflow:hidden; }
+.discount-row:focus-within { border-color:#2250d9; }
+.discount-input { flex:1; padding:10px 14px; border:none; font-size:13px; color:#374151; outline:none; background:#fff; }
+.discount-input::placeholder { color:#9CA3AF; }
+.discount-apply-btn { padding:10px 16px; background:#2250d9; color:#fff; border:none; font-size:12px; font-weight:700; cursor:pointer; letter-spacing:.06em; }
+.discount-apply-btn:hover { background:#1a3fbb; }
+#discountMsg { font-size:12px; min-height:18px; margin-top:5px; font-weight:600; }
+
+/* Order summary sidebar */
+.checkout-summary { width:300px; flex-shrink:0; }
+.summary-card { background:#f9f9f9; border:1px solid #e8e8e8; border-radius:8px; padding:24px; }
+.summary-title { font-size:13px; font-weight:700; color:#111; text-transform:uppercase; letter-spacing:.08em; margin-bottom:16px; }
+.summary-item { display:flex; align-items:flex-start; gap:12px; margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid #e8e8e8; }
+.summary-item-img { width:52px; height:52px; background:#f2f2f2; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; position:relative; }
+.summary-item-qty { position:absolute; top:-6px; right:-6px; background:#555; color:#fff; font-size:9px; font-weight:700; width:16px; height:16px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+.summary-item-name { font-size:13px; font-weight:500; color:#111; line-height:1.4; }
+.summary-item-price { font-size:13px; font-weight:600; color:#111; margin-left:auto; flex-shrink:0; }
+.summary-row { display:flex; justify-content:space-between; margin-bottom:10px; }
+.summary-row-label { font-size:13px; color:#555; }
+.summary-row-value { font-size:13px; color:#111; font-weight:500; }
+.summary-discount-row { display:flex; justify-content:space-between; margin-bottom:10px; }
+.summary-discount-label { font-size:13px; color:#059669; }
+.summary-discount-value { font-size:13px; color:#059669; font-weight:600; }
+.summary-total-row { display:flex; justify-content:space-between; margin-top:14px; padding-top:14px; border-top:1px solid #e8e8e8; }
+.summary-total-label { font-size:15px; font-weight:700; color:#111; }
+.summary-total-value { font-size:15px; font-weight:800; color:#111; }
+.summary-total-sub { font-size:10px; color:#9CA3AF; font-weight:400; display:block; }
+.checkout-pay-btn { width:100%; padding:14px; background:#2250d9; color:#fff; border:none; font-size:13px; font-weight:700; cursor:pointer; letter-spacing:.1em; text-transform:uppercase; margin-top:16px; border-radius:6px; }
+.checkout-pay-btn:hover { background:#1a3fbb; }
+.secure-note { display:flex; align-items:center; justify-content:center; gap:5px; margin-top:10px; font-size:11px; color:#9CA3AF; }
+
+/* OVERLAY */
 .overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.55); backdrop-filter:blur(3px); z-index:500; align-items:center; justify-content:center; padding:20px; }
 .overlay.show { display:flex; }
 .popup { width:100%; max-width:420px; border-radius:16px; overflow:hidden; box-shadow:0 32px 80px rgba(0,0,0,.35); animation:popIn .3s cubic-bezier(.34,1.4,.64,1); }
@@ -104,6 +159,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
 .popup-close { position:absolute; top:12px; right:14px; background:rgba(255,255,255,.2); border:none; color:#fff; width:28px; height:28px; border-radius:50%; font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
 .popup-close:hover { background:rgba(255,255,255,.35); }
 
+/* POPUP 1 */
 .p1-head { background:linear-gradient(135deg,#059669,#047857); padding:28px 26px 20px; text-align:center; position:relative; }
 .p1-badge { display:inline-flex; align-items:center; gap:5px; background:rgba(255,255,255,.2); color:#fff; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:4px 14px; border-radius:20px; margin-bottom:10px; }
 .p1-icon { font-size:42px; margin-bottom:6px; }
@@ -123,6 +179,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
 .btn-full-green { width:100%; padding:13px; border:none; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; color:#fff; background:linear-gradient(135deg,#059669,#047857); }
 .btn-full-green:hover { opacity:.9; }
 
+/* POPUP 2 */
 .p2-head { background:linear-gradient(135deg,#2563EB,#1D4ED8); padding:28px 26px 20px; text-align:center; position:relative; }
 .p2-badge { display:inline-flex; align-items:center; gap:5px; background:rgba(255,255,255,.2); color:#fff; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:4px 14px; border-radius:20px; margin-bottom:10px; }
 .p2-icon { font-size:42px; margin-bottom:6px; }
@@ -135,13 +192,12 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
 .deadline-icon { font-size:20px; flex-shrink:0; }
 .deadline-text { font-size:12px; color:#92400E; line-height:1.5; }
 .deadline-text strong { color:#C2410C; font-weight:800; font-size:13px; }
-.btn-full-blue { width:100%; padding:13px; border:none; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; color:#fff; background:linear-gradient(135deg,#2563EB,#1D4ED8); }
+.btn-full-blue { flex:1; padding:13px; border:none; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; color:#fff; background:linear-gradient(135deg,#2563EB,#1D4ED8); }
 .btn-full-blue:hover { opacity:.9; }
-.btn-outline-blue { padding:13px; border:2px solid #2563EB; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; color:#2563EB; background:#fff; }
+.btn-outline-blue { flex:1; padding:13px; border:2px solid #2563EB; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; color:#2563EB; background:#fff; }
 .btn-outline-blue:hover { background:#EFF6FF; }
-.btn-outline-purple { padding:13px; border:2px solid #7C3AED; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; color:#7C3AED; background:#fff; }
-.btn-outline-purple:hover { background:#F5F3FF; }
 
+/* POPUP 3 */
 .p3-head { background:linear-gradient(135deg,#7C3AED,#6D28D9); padding:28px 26px 20px; text-align:center; position:relative; }
 .p3-badge { display:inline-flex; align-items:center; gap:5px; background:rgba(255,255,255,.2); color:#fff; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:4px 14px; border-radius:20px; margin-bottom:10px; }
 .p3-icon { font-size:42px; margin-bottom:6px; }
@@ -158,9 +214,12 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
 .trial-bar-wrap { background:#E9D5FF; border-radius:20px; height:6px; overflow:hidden; }
 .trial-bar { width:8%; height:100%; background:linear-gradient(90deg,#7C3AED,#A78BFA); border-radius:20px; }
 .trial-bar-label { display:flex; justify-content:space-between; font-size:10px; color:#7C3AED; margin-top:4px; font-weight:600; }
-.btn-full-purple { width:100%; padding:13px; border:none; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; color:#fff; background:linear-gradient(135deg,#7C3AED,#6D28D9); }
+.btn-full-purple { flex:1; padding:13px; border:none; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; color:#fff; background:linear-gradient(135deg,#7C3AED,#6D28D9); }
 .btn-full-purple:hover { opacity:.9; }
+.btn-outline-purple { flex:1; padding:13px; border:2px solid #7C3AED; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; color:#7C3AED; background:#fff; }
+.btn-outline-purple:hover { background:#F5F3FF; }
 
+/* SWITCHER */
 .switcher { position:fixed; bottom:18px; left:50%; transform:translateX(-50%); display:flex; gap:6px; align-items:center; background:rgba(255,255,255,.97); border-radius:30px; padding:6px 12px; box-shadow:0 4px 24px rgba(0,0,0,.18); z-index:600; }
 .sw-label { font-size:11px; color:#9CA3AF; font-weight:700; padding:0 4px; white-space:nowrap; }
 .sw-btn { padding:6px 16px; border:none; border-radius:20px; font-size:12px; font-weight:700; cursor:pointer; white-space:nowrap; }
@@ -189,6 +248,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
   </div>
 </header>
 
+<!-- PRODUCT PAGE -->
 <div id="productPage">
   <div class="hero-banner">
     <div class="hero-text">
@@ -225,21 +285,6 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
         <button class="check-btn" id="checkBtn">CHECK</button>
       </div>
       <div id="serialHint">Please check the serial number of your scanner.</div>
-
-      <div id="demoLicenseWrap">
-        <button id="demoToggleBtn" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:700;color:#2250d9;padding:0;margin-bottom:8px;display:flex;align-items:center;gap:4px;">
-          <span id="demoArrow" style="font-size:10px;transition:transform .2s;">&#9654;</span> Have a demo license code?
-        </button>
-        <div id="demoInner" style="display:none;">
-          <div class="demo-label">Demo License Code</div>
-          <div class="demo-row">
-            <input class="demo-input" id="demoInput" type="text" placeholder="Enter your demo license code" />
-            <button class="demo-check-btn" id="demoCheckBtn">CHECK</button>
-          </div>
-          <div id="demoMsg"></div>
-        </div>
-      </div>
-
       <button id="addToCartBtn" disabled>ADD TO CART</button>
       <p class="prod-desc"><strong>Medit Link Express for Mac</strong> enables you to use the Medit Link Express application on Mac, providing an intuitive user experience designed for ease of use.</p>
       <div class="compat-title">Compatibility:</div>
@@ -251,6 +296,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
   </div>
 </div>
 
+<!-- CART PAGE -->
 <div id="cartPage">
   <div class="cart-wrap">
     <h1 class="cart-title">Cart</h1>
@@ -274,9 +320,155 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
           <span class="cart-subtotal-label">Subtotal</span>
           <span class="cart-subtotal-value" id="cartSubtotal">$0.00</span>
         </div>
-        <button class="cart-checkout-btn">CHECK OUT</button>
+        <button class="cart-checkout-btn" id="cartCheckoutBtn">CHECK OUT</button>
         <div class="cart-note">Shipping, taxes, and discount codes calculated at checkout.</div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT PAGE -->
+<div id="checkoutPage">
+  <div class="checkout-wrap">
+    <div class="checkout-header">
+      <button class="checkout-back" id="checkoutBackBtn">&#8592; Back to cart</button>
+      <div class="checkout-title">Checkout</div>
+    </div>
+    <div class="checkout-layout">
+      <!-- LEFT: Form -->
+      <div class="checkout-form">
+
+        <!-- Contact -->
+        <div class="checkout-section">
+          <div class="checkout-section-title">Contact</div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Email</label>
+              <input type="email" placeholder="email@example.com" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Delivery -->
+        <div class="checkout-section">
+          <div class="checkout-section-title">Delivery</div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Country / Region</label>
+              <select>
+                <option>United States</option>
+                <option>South Korea</option>
+                <option>Japan</option>
+                <option>Germany</option>
+                <option>United Kingdom</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>First name</label>
+              <input type="text" placeholder="First name" />
+            </div>
+            <div class="field-group">
+              <label>Last name</label>
+              <input type="text" placeholder="Last name" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Address</label>
+              <input type="text" placeholder="Street address" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>City</label>
+              <input type="text" placeholder="City" />
+            </div>
+            <div class="field-group" style="max-width:120px;">
+              <label>ZIP code</label>
+              <input type="text" placeholder="ZIP" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment -->
+        <div class="checkout-section">
+          <div class="checkout-section-title">Payment</div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Card number</label>
+              <div class="card-input-wrap">
+                <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" id="cardNumber" />
+                <div class="card-icons">
+                  <div class="card-icon ci-visa">VISA</div>
+                  <div class="card-icon ci-mc">MC</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Name on card</label>
+              <input type="text" placeholder="Full name as on card" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Expiry date</label>
+              <input type="text" placeholder="MM / YY" maxlength="7" id="cardExpiry" />
+            </div>
+            <div class="field-group">
+              <label>Security code</label>
+              <input type="text" placeholder="CVV" maxlength="4" id="cardCvv" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Order Summary -->
+      <div class="checkout-summary">
+        <div class="summary-card">
+          <div class="summary-title">Order Summary</div>
+          <div class="summary-item">
+            <div class="summary-item-img">&#x1F4BB;<span class="summary-item-qty">1</span></div>
+            <div class="summary-item-name">Medit Link Express for Mac</div>
+            <div class="summary-item-price" id="summaryItemPrice">$2,000.00</div>
+          </div>
+          <div id="discountSection" style="margin-bottom:14px;">
+            <button class="discount-toggle-btn" id="discountToggleBtn">
+              <span id="discountArrow" style="font-size:10px;transition:transform .2s;">&#9654;</span> Have a discount code?
+            </button>
+            <div class="discount-inner" id="discountInner">
+              <div class="discount-row">
+                <input class="discount-input" id="discountInput" type="text" placeholder="Enter discount code" />
+                <button class="discount-apply-btn" id="discountApplyBtn">APPLY</button>
+              </div>
+              <div id="discountMsg"></div>
+            </div>
+          </div>
+          <div class="summary-row">
+            <span class="summary-row-label">Subtotal</span>
+            <span class="summary-row-value" id="summarySubtotal">$2,000.00</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-row-label">Shipping</span>
+            <span class="summary-row-value">Free</span>
+          </div>
+          <div class="summary-discount-row" id="summaryDiscountRow" style="display:none;">
+            <span class="summary-discount-label">Discount</span>
+            <span class="summary-discount-value" id="summaryDiscountValue">-$0.00</span>
+          </div>
+          <div class="summary-total-row">
+            <div class="summary-total-label">Total<span class="summary-total-sub">USD</span></div>
+            <div class="summary-total-value" id="summaryTotal">$2,000.00</div>
+          </div>
+          <button class="checkout-pay-btn">Pay Now</button>
+          <div class="secure-note">&#x1F512; Secure checkout</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -333,8 +525,8 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
         <div class="pill pill-b">&#x23F3; 90-Day Free Trial</div>
       </div>
       <div style="display:flex;gap:8px;">
-        <button class="btn-full-blue" id="startBtn2" style="flex:1;">Get Started</button>
-        <button class="btn-outline-blue" id="buyBtn2" style="flex:1;">Buy It Now</button>
+        <button class="btn-full-blue" id="startBtn2">Get Started</button>
+        <button class="btn-outline-blue" id="buyBtn2">Buy It Now</button>
       </div>
     </div>
   </div>
@@ -370,13 +562,14 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
         <div class="pill pill-p">&#x23F1;&#xFE0F; 30-Day Free Trial</div>
       </div>
       <div style="display:flex;gap:8px;">
-        <button class="btn-full-purple" id="startBtn3" style="flex:1;">Get Started</button>
-        <button class="btn-outline-purple" id="buyBtn3" style="flex:1;">Buy It Now</button>
+        <button class="btn-full-purple" id="startBtn3">Get Started</button>
+        <button class="btn-outline-purple" id="buyBtn3">Buy It Now</button>
       </div>
     </div>
   </div>
 </div>
 
+<!-- SWITCHER -->
 <div class="switcher" id="switcher">
   <span class="sw-label">팝업 미리보기:</span>
   <button class="sw-btn sw-off" id="swOff">없음</button>
@@ -391,8 +584,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var CODE2 = ['SN-TRIAL-3MONTHS', 'I900-0001', 'I900C-0001'];
   var CODE3 = ['SN-PAID', 'I900M-FREE', 'FREE-0001'];
   var CODE4 = ['SN-TRIAL-1MONTH', 'I900M-TRIAL', 'TRIAL-0001'];
-  var DEMO  = ['DEMO2026', 'MEDIT-DEMO', 'DEMO-LICENSE'];
+  var DISCOUNT = ['DEMO2026', 'MEDIT-DEMO', 'DEMO-LICENSE'];
   var cartPrice = '$0.00';
+  var cartPriceNum = 0;
 
   function showPopup(n) {
     ['ov1','ov2','ov3'].forEach(function(id) { document.getElementById(id).classList.remove('show'); });
@@ -408,31 +602,23 @@ document.addEventListener('DOMContentLoaded', function() {
     if (active) { btn.classList.add('active'); btn.removeAttribute('disabled'); }
     else { btn.classList.remove('active'); btn.setAttribute('disabled','disabled'); }
   }
-  function showDemoInput() {
-    var wrap = document.getElementById('demoLicenseWrap');
-    var inner = document.getElementById('demoInner');
-    wrap.style.display = 'block';
-    inner.style.display = 'none';
-    document.getElementById('demoArrow').style.transform = '';
-    document.getElementById('demoInput').value = '';
-    document.getElementById('demoMsg').textContent = '';
-    document.getElementById('demoMsg').style.color = '';
+  function applyFreeAccess() {
+    var p = document.getElementById('priceDisplay');
+    p.textContent = '$0'; p.style.color = '#059669';
+    cartPrice = '$0.00'; cartPriceNum = 0; setCart(true);
+    closePopup('ov1'); closePopup('ov2'); closePopup('ov3');
   }
   function applyPaidAccess() {
     var p = document.getElementById('priceDisplay');
     p.textContent = '$2,000'; p.style.color = '#111';
-    cartPrice = '$2,000.00'; setCart(true);
+    cartPrice = '$2,000.00'; cartPriceNum = 2000; setCart(true);
     closePopup('ov1'); closePopup('ov2'); closePopup('ov3');
   }
-  function applyFreeAccess() {
-    var p = document.getElementById('priceDisplay');
-    p.textContent = '$0'; p.style.color = '#059669';
-    cartPrice = '$0.00'; setCart(true);
-    closePopup('ov1'); closePopup('ov2'); closePopup('ov3');
-  }
+
   function goToCart() {
     document.getElementById('productPage').style.display = 'none';
     document.getElementById('cartPage').style.display = 'block';
+    document.getElementById('checkoutPage').style.display = 'none';
     document.getElementById('cartItemPrice').textContent = cartPrice;
     document.getElementById('cartSubtotal').textContent = cartPrice;
     document.getElementById('cartBadge').classList.add('show');
@@ -441,46 +627,75 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   function goToProduct() {
     document.getElementById('cartPage').style.display = 'none';
+    document.getElementById('checkoutPage').style.display = 'none';
     document.getElementById('productPage').style.display = 'block';
     document.getElementById('switcher').style.display = 'flex';
     window.scrollTo(0,0);
   }
+  function goToCheckout() {
+    document.getElementById('cartPage').style.display = 'none';
+    document.getElementById('productPage').style.display = 'none';
+    document.getElementById('checkoutPage').style.display = 'block';
+    document.getElementById('switcher').style.display = 'none';
+    // sync summary
+    var fmt = cartPrice;
+    document.getElementById('summaryItemPrice').textContent = fmt;
+    document.getElementById('summarySubtotal').textContent = fmt;
+    document.getElementById('summaryTotal').textContent = fmt;
+    document.getElementById('summaryDiscountRow').style.display = 'none';
+    // show discount section only for $2,000
+    document.getElementById('discountSection').style.display = cartPriceNum === 2000 ? 'block' : 'none';
+    // reset discount
+    document.getElementById('discountInput').value = '';
+    document.getElementById('discountMsg').textContent = '';
+    document.getElementById('discountInner').style.display = 'none';
+    document.getElementById('discountArrow').style.transform = '';
+    window.scrollTo(0,0);
+  }
 
-  document.getElementById('demoToggleBtn').addEventListener('click', function() {
-    var inner = document.getElementById('demoInner');
-    var arrow = document.getElementById('demoArrow');
+  // Discount toggle
+  document.getElementById('discountToggleBtn').addEventListener('click', function() {
+    var inner = document.getElementById('discountInner');
+    var arrow = document.getElementById('discountArrow');
     var isOpen = inner.style.display === 'block';
     inner.style.display = isOpen ? 'none' : 'block';
     arrow.style.transform = isOpen ? '' : 'rotate(90deg)';
   });
 
+  // Discount apply
+  document.getElementById('discountApplyBtn').addEventListener('click', function() {
+    var val = document.getElementById('discountInput').value.trim().toUpperCase();
+    var msg = document.getElementById('discountMsg');
+    var discRow = document.getElementById('summaryDiscountRow');
+    if (DISCOUNT.indexOf(val) !== -1) {
+      msg.textContent = 'Discount code applied! 100% off.';
+      msg.style.color = '#059669';
+      discRow.style.display = 'flex';
+      document.getElementById('summaryDiscountValue').textContent = '-$' + cartPriceNum.toLocaleString() + '.00';
+      document.getElementById('summaryTotal').textContent = '$0.00';
+    } else {
+      msg.textContent = 'Invalid discount code. Please try again.';
+      msg.style.color = '#DC2626';
+      discRow.style.display = 'none';
+      document.getElementById('summaryTotal').textContent = cartPrice;
+    }
+  });
+  document.getElementById('discountInput').addEventListener('input', function() {
+    document.getElementById('discountMsg').textContent = '';
+    document.getElementById('summaryDiscountRow').style.display = 'none';
+    document.getElementById('summaryTotal').textContent = cartPrice;
+  });
+
+  // Serial CHECK
   document.getElementById('checkBtn').addEventListener('click', function() {
     var val = document.getElementById('serialInput').value.trim().toUpperCase();
-    document.getElementById('demoLicenseWrap').style.display = 'none';
     setCart(false);
     if (!val) { setHint('Please enter a serial number.', '#DC2626'); return; }
     if (CODE1.indexOf(val) !== -1) { setHint('Please check the serial number of your scanner.', '#555'); showPopup(1); }
     else if (CODE2.indexOf(val) !== -1) { setHint('Please check the serial number of your scanner.', '#555'); showPopup(2); }
-    else if (CODE3.indexOf(val) !== -1) { setHint('Serial number verified.', '#059669'); cartPrice = '$2,000.00'; setCart(true); showDemoInput(); }
+    else if (CODE3.indexOf(val) !== -1) { setHint('Serial number verified.', '#059669'); cartPrice = '$2,000.00'; cartPriceNum = 2000; setCart(true); }
     else if (CODE4.indexOf(val) !== -1) { setHint('Please check the serial number of your scanner.', '#555'); showPopup(3); }
     else { setHint('Invalid serial number is entered', '#DC2626'); }
-  });
-
-  document.getElementById('demoCheckBtn').addEventListener('click', function() {
-    var val = document.getElementById('demoInput').value.trim().toUpperCase();
-    var msg = document.getElementById('demoMsg');
-    if (DEMO.indexOf(val) !== -1) {
-      msg.textContent = 'Demo license verified.'; msg.style.color = '#059669';
-      var p = document.getElementById('priceDisplay');
-      p.textContent = '$0'; p.style.color = '#059669';
-      cartPrice = '$0.00'; setCart(true);
-    } else {
-      msg.textContent = 'Invalid demo license code. Please try again.'; msg.style.color = '#DC2626'; setCart(false);
-    }
-  });
-
-  document.getElementById('demoInput').addEventListener('input', function() {
-    document.getElementById('demoMsg').textContent = ''; setCart(false);
   });
 
   document.getElementById('addToCartBtn').addEventListener('click', function() {
@@ -490,13 +705,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('cartBadge').classList.contains('show')) goToCart();
   });
   document.getElementById('continueShoppingBtn').addEventListener('click', goToProduct);
+  document.getElementById('cartCheckoutBtn').addEventListener('click', goToCheckout);
+  document.getElementById('checkoutBackBtn').addEventListener('click', goToCart);
+
   document.getElementById('removeItemBtn').addEventListener('click', function() {
     document.getElementById('cartBadge').classList.remove('show');
     goToProduct(); setCart(false);
     var p = document.getElementById('priceDisplay');
     p.textContent = '$2,000'; p.style.color = '#111';
     setHint('Please check the serial number of your scanner.', '#555');
-    document.getElementById('demoLicenseWrap').style.display = 'none';
   });
 
   document.getElementById('startBtn1').addEventListener('click', applyFreeAccess);
@@ -504,6 +721,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('startBtn3').addEventListener('click', applyFreeAccess);
   document.getElementById('buyBtn2').addEventListener('click', applyPaidAccess);
   document.getElementById('buyBtn3').addEventListener('click', applyPaidAccess);
+
   document.getElementById('closeOv1').addEventListener('click', function() { closePopup('ov1'); });
   document.getElementById('closeOv2').addEventListener('click', function() { closePopup('ov2'); });
   document.getElementById('closeOv3').addEventListener('click', function() { closePopup('ov3'); });
@@ -512,6 +730,20 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('sw1').addEventListener('click', function() { showPopup(1); });
   document.getElementById('sw2').addEventListener('click', function() { showPopup(2); });
   document.getElementById('sw3').addEventListener('click', function() { showPopup(3); });
+
+  // Card number formatting
+  document.getElementById('cardNumber').addEventListener('input', function() {
+    var v = this.value.replace(/\D/g,'').substring(0,16);
+    this.value = v.replace(/(.{4})/g,'$1 ').trim();
+  });
+  document.getElementById('cardExpiry').addEventListener('input', function() {
+    var v = this.value.replace(/\D/g,'').substring(0,4);
+    if (v.length >= 3) v = v.substring(0,2) + ' / ' + v.substring(2);
+    this.value = v;
+  });
+  document.getElementById('cardCvv').addEventListener('input', function() {
+    this.value = this.value.replace(/\D/g,'').substring(0,4);
+  });
 });
 </script>
 </body>
