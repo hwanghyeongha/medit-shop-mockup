@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medit Link Express for Mac</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif; background:#fff; color:#222; font-size:14px; }
+
+.topbar { border-bottom:1px solid #e8e8e8; padding:8px 40px; display:flex; gap:28px; }
+.topbar a { font-size:12px; color:#444; text-decoration:none; }
+.site-header { padding:14px 40px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #e8e8e8; }
+.logo { font-size:20px; font-weight:800; color:#2250d9; }
+.logo span { color:#222; }
+.main-nav { display:flex; gap:28px; }
+.main-nav a { font-size:14px; color:#222; text-decoration:none; }
+.nav-icons { display:flex; gap:18px; align-items:center; }
+.nav-icons svg { width:20px; height:20px; fill:none; stroke:#333; stroke-width:1.8; cursor:pointer; }
+.cart-badge { background:#e53935; color:#fff; font-size:10px; font-weight:700; width:16px; height:16px; border-radius:50%; display:none; align-items:center; justify-content:center; margin-left:-8px; margin-top:-12px; }
+.cart-badge.show { display:flex; }
+
+#productPage { display:block; }
+#cartPage { display:none; }
+
+.hero-banner { background:linear-gradient(120deg,#7a9e3a 0%,#4a7a3a 30%,#2a5fd4 70%,#1a3fc4 100%); padding:36px 40px; display:flex; align-items:center; justify-content:center; text-align:center; min-height:160px; }
+.hero-text h2 { font-size:26px; font-weight:700; color:#fff; margin-bottom:8px; }
+.hero-text p { font-size:13px; color:rgba(255,255,255,.85); margin-bottom:14px; }
+.hero-text a { font-size:12px; font-weight:700; color:#fff; text-decoration:none; border-bottom:1.5px solid rgba(255,255,255,.6); letter-spacing:.05em; }
+
+.product-wrap { max-width:1200px; margin:0 auto; display:flex; padding:30px 40px 80px; }
+.thumb-col { display:flex; flex-direction:column; gap:8px; margin-right:16px; padding-top:4px; }
+.thumb { width:70px; height:70px; border:1.5px solid #e0e0e0; border-radius:4px; background:#f5f5f5; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+.thumb.active { border-color:#2250d9; }
+.thumb-ph { width:100%; height:100%; background:linear-gradient(135deg,#e8edf8,#d0d9f0); display:flex; align-items:center; justify-content:center; font-size:22px; }
+.main-img-wrap { flex:1; min-width:0; margin-right:48px; background:#f7f8fc; border-radius:4px; overflow:hidden; aspect-ratio:4/3; max-height:420px; }
+.img-scene { width:100%; height:100%; background:linear-gradient(160deg,#c8d9ee 0%,#a8bfdd 40%,#8eadd0 100%); position:relative; }
+.scene-table { position:absolute; bottom:0; left:0; right:0; height:38%; background:linear-gradient(180deg,#d0c4a8,#b8ab90); }
+.scene-tablet { position:absolute; width:52%; height:65%; top:10%; left:14%; background:#1a1a2e; border-radius:8px; box-shadow:0 8px 32px rgba(0,0,0,.35); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.tablet-screen { width:92%; height:90%; background:linear-gradient(135deg,#2a3a6e,#1a2a5e); border-radius:4px; padding:8px; display:flex; flex-direction:column; gap:4px; }
+.tablet-row { display:flex; gap:4px; }
+.tablet-card { flex:1; background:rgba(255,255,255,.12); border-radius:3px; height:28px; display:flex; align-items:center; justify-content:center; font-size:6px; color:rgba(255,255,255,.6); font-weight:600; }
+.tablet-top { background:rgba(255,255,255,.08); border-radius:3px; height:20px; margin-bottom:4px; display:flex; align-items:center; padding:0 6px; gap:4px; }
+.dot { width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,.4); }
+.scene-scanner { position:absolute; width:22%; height:52%; bottom:22%; right:14%; background:linear-gradient(160deg,#e8e8f0,#c8c8d8); border-radius:30px 30px 8px 8px; box-shadow:0 6px 20px rgba(0,0,0,.25); display:flex; align-items:flex-start; justify-content:center; padding-top:12px; }
+.scanner-dot { width:10px; height:10px; border-radius:50%; background:#3a7bff; box-shadow:0 0 8px rgba(58,123,255,.8); }
+.scene-hand { position:absolute; bottom:8%; right:8%; font-size:50px; transform:rotate(-30deg) scaleX(-1); }
+
+.product-info { width:430px; flex-shrink:0; }
+.prod-title { font-size:28px; font-weight:700; color:#111; margin-bottom:14px; line-height:1.2; }
+#priceDisplay { font-size:28px; font-weight:800; color:#111; transition:color .3s; display:block; margin-bottom:18px; }
+.serial-row { display:flex; border:1px solid #ddd; border-radius:2px; overflow:hidden; margin-bottom:6px; }
+.serial-input { flex:1; padding:12px 16px; border:none; font-size:14px; color:#333; outline:none; }
+.serial-input::placeholder { color:#aaa; }
+.check-btn { padding:12px 28px; background:#2250d9; color:#fff; border:none; font-size:13px; font-weight:700; cursor:pointer; letter-spacing:.08em; text-transform:uppercase; }
+.check-btn:hover { background:#1a3fbb; }
+#serialHint { font-size:12px; color:#555; font-weight:600; margin-bottom:10px; }
+
+#demoLicenseWrap { display:none; margin-bottom:18px; }
+.demo-label { font-size:11px; font-weight:700; color:#374151; text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px; }
+.demo-row { display:flex; border:1.5px solid #E5E7EB; border-radius:8px; overflow:hidden; }
+.demo-row:focus-within { border-color:#2250d9; }
+.demo-input { flex:1; padding:10px 14px; border:none; font-size:13px; color:#374151; outline:none; background:#fff; }
+.demo-input::placeholder { color:#9CA3AF; }
+.demo-check-btn { padding:10px 16px; background:#2250d9; color:#fff; border:none; font-size:12px; font-weight:700; cursor:pointer; letter-spacing:.06em; }
+.demo-check-btn:hover { background:#1a3fbb; }
+#demoMsg { font-size:12px; min-height:18px; margin-top:5px; font-weight:600; }
+
+#addToCartBtn { width:100%; padding:14px; background:#e8e8e8; color:#aaa; border:none; border-radius:2px; font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; cursor:not-allowed; margin-bottom:20px; transition:background .3s, color .3s; }
+#addToCartBtn.active { background:#2250d9; color:#fff; cursor:pointer; }
+#addToCartBtn.active:hover { background:#1a3fbb; }
+.prod-desc { font-size:14px; color:#333; line-height:1.7; margin-bottom:14px; }
+.compat-title { font-size:14px; font-weight:700; color:#222; margin-bottom:8px; }
+.compat-list { list-style:none; }
+.compat-list li { font-size:13px; color:#444; padding:3px 0; display:flex; gap:6px; }
+.compat-list li::before { content:'•'; flex-shrink:0; }
+
+#cartPage { min-height:60vh; }
+.cart-wrap { max-width:1100px; margin:0 auto; padding:48px 40px 80px; }
+.cart-title { font-size:32px; font-weight:400; color:#111; text-align:center; margin-bottom:10px; }
+.cart-continue { text-align:center; margin-bottom:40px; }
+.cart-continue a { font-size:14px; color:#333; text-decoration:underline; cursor:pointer; }
+.cart-content { display:flex; gap:40px; align-items:flex-start; }
+.cart-items { flex:1; border-top:1px solid #e0e0e0; }
+.cart-item { display:flex; align-items:flex-start; gap:20px; padding:24px 0; border-bottom:1px solid #e0e0e0; }
+.cart-item-img { width:100px; height:100px; background:#f2f2f2; border-radius:4px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:40px; }
+.cart-item-info { flex:1; }
+.cart-item-name { font-size:15px; font-weight:500; color:#111; margin-bottom:6px; }
+.cart-item-price-row { display:flex; justify-content:space-between; align-items:center; margin-top:16px; }
+.cart-item-remove { font-size:13px; color:#333; text-decoration:underline; cursor:pointer; background:none; border:none; }
+.cart-item-qty { font-size:13px; color:#555; }
+.cart-item-total { font-size:14px; font-weight:500; color:#111; }
+.cart-summary { width:280px; flex-shrink:0; background:#f5f5f5; padding:24px; border-radius:4px; }
+.cart-subtotal-row { display:flex; justify-content:space-between; margin-bottom:16px; }
+.cart-subtotal-label { font-size:15px; color:#111; }
+.cart-subtotal-value { font-size:15px; font-weight:600; color:#111; }
+.cart-checkout-btn { width:100%; padding:14px; background:#2250d9; color:#fff; border:none; font-size:13px; font-weight:700; cursor:pointer; letter-spacing:.1em; text-transform:uppercase; margin-bottom:12px; border-radius:2px; }
+.cart-note { font-size:12px; color:#555; text-align:center; line-height:1.5; }
+
+.overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.55); backdrop-filter:blur(3px); z-index:500; align-items:center; justify-content:center; padding:20px; }
+.overlay.show { display:flex; }
+.popup { width:100%; max-width:420px; border-radius:16px; overflow:hidden; box-shadow:0 32px 80px rgba(0,0,0,.35); animation:popIn .3s cubic-bezier(.34,1.4,.64,1); }
+@keyframes popIn { from{opacity:0;transform:scale(.9) translateY(20px)} to{opacity:1;transform:scale(1) translateY(0)} }
+.popup-close { position:absolute; top:12px; right:14px; background:rgba(255,255,255,.2); border:none; color:#fff; width:28px; height:28px; border-radius:50%; font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.popup-close:hover { background:rgba(255,255,255,.35); }
+
+.p1-head { background:linear-gradient(135deg,#059669,#047857); padding:28px 26px 20px; text-align:center; position:relative; }
+.p1-badge { display:inline-flex; align-items:center; gap:5px; background:rgba(255,255,255,.2); color:#fff; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:4px 14px; border-radius:20px; margin-bottom:10px; }
+.p1-icon { font-size:42px; margin-bottom:6px; }
+.p1-head h2 { color:#fff; font-size:18px; font-weight:800; line-height:1.3; }
+.p1-body { background:#fff; padding:20px 24px 24px; }
+.valbox-green { background:linear-gradient(135deg,#ECFDF5,#D1FAE5); border:1.5px solid #6EE7B7; border-radius:10px; padding:14px 16px; text-align:center; margin-bottom:12px; }
+.val-label { font-size:11px; color:#6B7280; font-weight:600; margin-bottom:2px; }
+.val-price-green { font-size:32px; font-weight:900; color:#059669; line-height:1; }
+.val-price-green sup { font-size:17px; font-weight:700; vertical-align:super; }
+.val-sub { font-size:11px; color:#6B7280; margin-top:3px; }
+.popup-desc { font-size:13px; color:#374151; line-height:1.65; text-align:center; margin-bottom:12px; }
+.pills { display:flex; gap:6px; justify-content:center; flex-wrap:wrap; margin-bottom:16px; }
+.pill { font-size:11px; font-weight:600; padding:4px 11px; border-radius:20px; display:flex; align-items:center; gap:3px; }
+.pill-g { background:#F0FDF4; color:#065F46; border:1px solid #BBF7D0; }
+.pill-b { background:#EFF6FF; color:#1D4ED8; border:1px solid #BFDBFE; }
+.pill-p { background:#F5F3FF; color:#5B21B6; border:1px solid #C4B5FD; }
+.btn-full-green { width:100%; padding:13px; border:none; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; color:#fff; background:linear-gradient(135deg,#059669,#047857); }
+.btn-full-green:hover { opacity:.9; }
+
+.p2-head { background:linear-gradient(135deg,#2563EB,#1D4ED8); padding:28px 26px 20px; text-align:center; position:relative; }
+.p2-badge { display:inline-flex; align-items:center; gap:5px; background:rgba(255,255,255,.2); color:#fff; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:4px 14px; border-radius:20px; margin-bottom:10px; }
+.p2-icon { font-size:42px; margin-bottom:6px; }
+.p2-head h2 { color:#fff; font-size:18px; font-weight:800; line-height:1.3; }
+.p2-body { background:#fff; padding:20px 24px 24px; }
+.valbox-blue { background:linear-gradient(135deg,#EFF6FF,#DBEAFE); border:1.5px solid #93C5FD; border-radius:10px; padding:14px 16px; text-align:center; margin-bottom:12px; }
+.val-price-blue { font-size:32px; font-weight:900; color:#2563EB; line-height:1; }
+.val-price-blue sup { font-size:17px; font-weight:700; vertical-align:super; }
+.deadline-box { background:#FFF7ED; border:1.5px solid #FED7AA; border-radius:10px; padding:11px 14px; display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.deadline-icon { font-size:20px; flex-shrink:0; }
+.deadline-text { font-size:12px; color:#92400E; line-height:1.5; }
+.deadline-text strong { color:#C2410C; font-weight:800; font-size:13px; }
+.btn-full-blue { width:100%; padding:13px; border:none; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; color:#fff; background:linear-gradient(135deg,#2563EB,#1D4ED8); }
+.btn-full-blue:hover { opacity:.9; }
+.btn-outline-blue { padding:13px; border:2px solid #2563EB; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; color:#2563EB; background:#fff; }
+.btn-outline-blue:hover { background:#EFF6FF; }
+.btn-outline-purple { padding:13px; border:2px solid #7C3AED; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; color:#7C3AED; background:#fff; }
+.btn-outline-purple:hover { background:#F5F3FF; }
+
+.p3-head { background:linear-gradient(135deg,#7C3AED,#6D28D9); padding:28px 26px 20px; text-align:center; position:relative; }
+.p3-badge { display:inline-flex; align-items:center; gap:5px; background:rgba(255,255,255,.2); color:#fff; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:4px 14px; border-radius:20px; margin-bottom:10px; }
+.p3-icon { font-size:42px; margin-bottom:6px; }
+.p3-head h2 { color:#fff; font-size:18px; font-weight:800; line-height:1.3; }
+.p3-body { background:#fff; padding:20px 24px 24px; }
+.valbox-purple { background:linear-gradient(135deg,#F5F3FF,#EDE9FE); border:1.5px solid #C4B5FD; border-radius:10px; padding:14px 16px; text-align:center; margin-bottom:12px; }
+.val-price-purple { font-size:32px; font-weight:900; color:#7C3AED; line-height:1; }
+.val-price-purple sup { font-size:17px; font-weight:700; vertical-align:super; }
+.trial-box { background:#F5F3FF; border:1.5px solid #C4B5FD; border-radius:10px; padding:14px 16px; margin-bottom:12px; }
+.trial-box-top { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.trial-icon { font-size:22px; flex-shrink:0; }
+.trial-title { font-size:13px; font-weight:700; color:#5B21B6; }
+.trial-title span { font-size:11px; font-weight:500; color:#7C3AED; display:block; margin-top:2px; }
+.trial-bar-wrap { background:#E9D5FF; border-radius:20px; height:6px; overflow:hidden; }
+.trial-bar { width:8%; height:100%; background:linear-gradient(90deg,#7C3AED,#A78BFA); border-radius:20px; }
+.trial-bar-label { display:flex; justify-content:space-between; font-size:10px; color:#7C3AED; margin-top:4px; font-weight:600; }
+.btn-full-purple { width:100%; padding:13px; border:none; border-radius:8px; font-size:14px; font-weight:800; cursor:pointer; color:#fff; background:linear-gradient(135deg,#7C3AED,#6D28D9); }
+.btn-full-purple:hover { opacity:.9; }
+
+.switcher { position:fixed; bottom:18px; left:50%; transform:translateX(-50%); display:flex; gap:6px; align-items:center; background:rgba(255,255,255,.97); border-radius:30px; padding:6px 12px; box-shadow:0 4px 24px rgba(0,0,0,.18); z-index:600; }
+.sw-label { font-size:11px; color:#9CA3AF; font-weight:700; padding:0 4px; white-space:nowrap; }
+.sw-btn { padding:6px 16px; border:none; border-radius:20px; font-size:12px; font-weight:700; cursor:pointer; white-space:nowrap; }
+.sw-off { background:#F3F4F6; color:#374151; }
+.sw-1  { background:#059669; color:#fff; }
+.sw-2  { background:#2563EB; color:#fff; }
+.sw-3  { background:#7C3AED; color:#fff; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="#">Medit</a><a href="#">Medit Link</a><a href="#">Help Center</a><a href="#">Medit Academy</a>
+</div>
+<header class="site-header">
+  <div class="logo">MEDIT <span>Shop</span></div>
+  <nav class="main-nav">
+    <a href="#">Home</a><a href="#">Catalog ▾</a><a href="#">FAQ</a><a href="#">News</a><a href="#">About Us</a><a href="#">Contact</a>
+  </nav>
+  <div class="nav-icons">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    <div style="display:flex;align-items:flex-start;cursor:pointer;" id="cartIconWrap">
+      <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <div class="cart-badge" id="cartBadge">1</div>
+    </div>
+  </div>
+</header>
+
+<div id="productPage">
+  <div class="hero-banner">
+    <div class="hero-text">
+      <h2>The Trendy Medit Backpack</h2>
+      <p>Carry around high functionality and contemporary style in your daily practice.</p>
+      <a href="#">SHOP THIS &gt;</a>
+    </div>
+  </div>
+  <div class="product-wrap">
+    <div class="thumb-col">
+      <div class="thumb active"><div class="thumb-ph">&#x1F5A5;</div></div>
+      <div class="thumb"><div class="thumb-ph" style="background:linear-gradient(135deg,#dce8f8,#c4d8f0);">&#x1F499;</div></div>
+    </div>
+    <div class="main-img-wrap">
+      <div class="img-scene">
+        <div class="scene-table"></div>
+        <div class="scene-tablet">
+          <div class="tablet-screen">
+            <div class="tablet-top"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+            <div class="tablet-row"><div class="tablet-card" style="flex:2">Welcome! Let's get started!</div></div>
+            <div class="tablet-row"><div class="tablet-card">Impression Scan</div><div class="tablet-card">Treatment Scan</div></div>
+            <div class="tablet-row"><div class="tablet-card">Patient</div><div class="tablet-card">View Order</div></div>
+          </div>
+        </div>
+        <div class="scene-scanner"><div class="scanner-dot"></div></div>
+        <div class="scene-hand">&#x1F9E4;</div>
+      </div>
+    </div>
+    <div class="product-info">
+      <h1 class="prod-title">Medit Link Express for Mac</h1>
+      <span id="priceDisplay">$2,000</span>
+      <div class="serial-row">
+        <input class="serial-input" id="serialInput" type="text" placeholder="Serial Number" />
+        <button class="check-btn" id="checkBtn">CHECK</button>
+      </div>
+      <div id="serialHint">Please check the serial number of your scanner.</div>
+
+      <div id="demoLicenseWrap">
+        <button id="demoToggleBtn" style="background:none;border:none;cursor:pointer;font-size:12px;font-weight:700;color:#2250d9;padding:0;margin-bottom:8px;display:flex;align-items:center;gap:4px;">
+          <span id="demoArrow" style="font-size:10px;transition:transform .2s;">&#9654;</span> Have a demo license code?
+        </button>
+        <div id="demoInner" style="display:none;">
+          <div class="demo-label">Demo License Code</div>
+          <div class="demo-row">
+            <input class="demo-input" id="demoInput" type="text" placeholder="Enter your demo license code" />
+            <button class="demo-check-btn" id="demoCheckBtn">CHECK</button>
+          </div>
+          <div id="demoMsg"></div>
+        </div>
+      </div>
+
+      <button id="addToCartBtn" disabled>ADD TO CART</button>
+      <p class="prod-desc"><strong>Medit Link Express for Mac</strong> enables you to use the Medit Link Express application on Mac, providing an intuitive user experience designed for ease of use.</p>
+      <div class="compat-title">Compatibility:</div>
+      <ul class="compat-list">
+        <li><span><strong>i900M scanner owners</strong>: You can already use the Medit Link Express application</span></li>
+        <li><span><strong>i900 and i900C scanner owners</strong>: Purchase this product to unlock access to the Medit Link Express application on your Mac</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="cartPage">
+  <div class="cart-wrap">
+    <h1 class="cart-title">Cart</h1>
+    <div class="cart-continue"><a id="continueShoppingBtn">Continue shopping</a></div>
+    <div class="cart-content">
+      <div class="cart-items">
+        <div class="cart-item">
+          <div class="cart-item-img">&#x1F4BB;</div>
+          <div class="cart-item-info">
+            <div class="cart-item-name">Medit Link Express for Mac</div>
+            <div class="cart-item-price-row">
+              <button class="cart-item-remove" id="removeItemBtn">Remove</button>
+              <span class="cart-item-qty">1 EA</span>
+              <span class="cart-item-total" id="cartItemPrice">$0.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-summary">
+        <div class="cart-subtotal-row">
+          <span class="cart-subtotal-label">Subtotal</span>
+          <span class="cart-subtotal-value" id="cartSubtotal">$0.00</span>
+        </div>
+        <button class="cart-checkout-btn">CHECK OUT</button>
+        <div class="cart-note">Shipping, taxes, and discount codes calculated at checkout.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POPUP 1: Permanent -->
+<div class="overlay" id="ov1">
+  <div class="popup">
+    <div class="p1-head">
+      <button class="popup-close" id="closeOv1">&#x2715;</button>
+      <div class="p1-badge">&#x2736; Congratulations</div>
+      <div class="p1-icon">&#x1F381;</div>
+      <h2>You're eligible for<br>Medit Link Express!</h2>
+    </div>
+    <div class="p1-body">
+      <div class="valbox-green">
+        <div class="val-label">Total Value</div>
+        <div class="val-price-green"><sup>$</sup>2,000</div>
+        <div class="val-sub">Medit Link Express — Full License</div>
+      </div>
+      <p class="popup-desc">Your serial number has been verified.<br>You can use <strong style="color:#065F46;">Medit Link Express</strong><br><strong style="color:#065F46;">permanently, completely free of charge.</strong></p>
+      <div class="pills">
+        <div class="pill pill-g">&#x2705; Lifetime Access</div>
+        <div class="pill pill-g">&#x1F513; Full Features</div>
+        <div class="pill pill-g">&#x267E;&#xFE0F; No Expiration</div>
+      </div>
+      <button class="btn-full-green" id="startBtn1">Get Started</button>
+    </div>
+  </div>
+</div>
+
+<!-- POPUP 2: 3 Month Trial -->
+<div class="overlay" id="ov2">
+  <div class="popup">
+    <div class="p2-head">
+      <button class="popup-close" id="closeOv2">&#x2715;</button>
+      <div class="p2-badge">&#x1F680; Trial Access</div>
+      <div class="p2-icon">&#x23F1;&#xFE0F;</div>
+      <h2>Try Medit Link Express<br>Free for 3 Months!</h2>
+    </div>
+    <div class="p2-body">
+      <div class="valbox-blue">
+        <div class="val-label">Total Value</div>
+        <div class="val-price-blue"><sup>$</sup>2,000</div>
+        <div class="val-sub">Medit Link Express — 3 Month Trial</div>
+      </div>
+      <p class="popup-desc">Your serial number has been verified.<br>Experience <strong style="color:#1D4ED8;">full features</strong> of Medit Link Express<br><strong style="color:#1D4ED8;">completely free for 3 months.</strong></p>
+      <div class="deadline-box">
+        <div class="deadline-icon">&#x1F4C5;</div>
+        <div class="deadline-text">Trial expires in <strong>90 days from activation</strong><br><span style="font-size:11px;color:#b45309;">After trial, subscription required to continue.</span></div>
+      </div>
+      <div class="pills">
+        <div class="pill pill-b">&#x2705; Full Features</div>
+        <div class="pill pill-b">&#x1F513; No Credit Card</div>
+        <div class="pill pill-b">&#x23F3; 90-Day Free Trial</div>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn-full-blue" id="startBtn2" style="flex:1;">Get Started</button>
+        <button class="btn-outline-blue" id="buyBtn2" style="flex:1;">Buy It Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POPUP 3: 1 Month Trial -->
+<div class="overlay" id="ov3">
+  <div class="popup">
+    <div class="p3-head">
+      <button class="popup-close" id="closeOv3">&#x2715;</button>
+      <div class="p3-badge">&#x1F680; Trial Access</div>
+      <div class="p3-icon">&#x23F1;&#xFE0F;</div>
+      <h2>Try Medit Link Express<br>Free for 1 Month!</h2>
+    </div>
+    <div class="p3-body">
+      <div class="valbox-purple">
+        <div class="val-label">Total Value</div>
+        <div class="val-price-purple"><sup>$</sup>2,000</div>
+        <div class="val-sub">Medit Link Express — 1 Month Trial</div>
+      </div>
+      <p class="popup-desc">Your serial number has been verified.<br>Experience <strong style="color:#5B21B6;">full features</strong> of Medit Link Express<br><strong style="color:#5B21B6;">completely free for 1 month.</strong></p>
+      <div class="trial-box">
+        <div class="trial-box-top">
+          <div class="trial-icon">&#x1F4C5;</div>
+          <div class="trial-title">Trial Period<span>Expires in 30 days from activation</span></div>
+        </div>
+        <div class="trial-bar-wrap"><div class="trial-bar"></div></div>
+        <div class="trial-bar-label"><span>Day 1</span><span>Day 30</span></div>
+      </div>
+      <div class="pills" style="margin-bottom:14px;">
+        <div class="pill pill-p">&#x2705; Full Features</div>
+        <div class="pill pill-p">&#x1F513; No Credit Card</div>
+        <div class="pill pill-p">&#x23F1;&#xFE0F; 30-Day Free Trial</div>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn-full-purple" id="startBtn3" style="flex:1;">Get Started</button>
+        <button class="btn-outline-purple" id="buyBtn3" style="flex:1;">Buy It Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="switcher" id="switcher">
+  <span class="sw-label">팝업 미리보기:</span>
+  <button class="sw-btn sw-off" id="swOff">없음</button>
+  <button class="sw-btn sw-1" id="sw1">Code #1 — 영구</button>
+  <button class="sw-btn sw-2" id="sw2">Code #2 — 3개월 Trial</button>
+  <button class="sw-btn sw-3" id="sw3">Code #3 — 1개월 Trial</button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var CODE1 = ['SN-PERPETUAL', 'I900M-0001', 'I900M-0002'];
+  var CODE2 = ['SN-TRIAL-3MONTHS', 'I900-0001', 'I900C-0001'];
+  var CODE3 = ['SN-PAID', 'I900M-FREE', 'FREE-0001'];
+  var CODE4 = ['SN-TRIAL-1MONTH', 'I900M-TRIAL', 'TRIAL-0001'];
+  var DEMO  = ['DEMO2026', 'MEDIT-DEMO', 'DEMO-LICENSE'];
+  var cartPrice = '$0.00';
+
+  function showPopup(n) {
+    ['ov1','ov2','ov3'].forEach(function(id) { document.getElementById(id).classList.remove('show'); });
+    document.getElementById('ov' + n).classList.add('show');
+  }
+  function closePopup(id) { document.getElementById(id).classList.remove('show'); }
+  function setHint(msg, color) {
+    var el = document.getElementById('serialHint');
+    el.textContent = msg; el.style.color = color;
+  }
+  function setCart(active) {
+    var btn = document.getElementById('addToCartBtn');
+    if (active) { btn.classList.add('active'); btn.removeAttribute('disabled'); }
+    else { btn.classList.remove('active'); btn.setAttribute('disabled','disabled'); }
+  }
+  function showDemoInput() {
+    var wrap = document.getElementById('demoLicenseWrap');
+    var inner = document.getElementById('demoInner');
+    wrap.style.display = 'block';
+    inner.style.display = 'none';
+    document.getElementById('demoArrow').style.transform = '';
+    document.getElementById('demoInput').value = '';
+    document.getElementById('demoMsg').textContent = '';
+    document.getElementById('demoMsg').style.color = '';
+  }
+  function applyPaidAccess() {
+    var p = document.getElementById('priceDisplay');
+    p.textContent = '$2,000'; p.style.color = '#111';
+    cartPrice = '$2,000.00'; setCart(true);
+    closePopup('ov1'); closePopup('ov2'); closePopup('ov3');
+  }
+  function applyFreeAccess() {
+    var p = document.getElementById('priceDisplay');
+    p.textContent = '$0'; p.style.color = '#059669';
+    cartPrice = '$0.00'; setCart(true);
+    closePopup('ov1'); closePopup('ov2'); closePopup('ov3');
+  }
+  function goToCart() {
+    document.getElementById('productPage').style.display = 'none';
+    document.getElementById('cartPage').style.display = 'block';
+    document.getElementById('cartItemPrice').textContent = cartPrice;
+    document.getElementById('cartSubtotal').textContent = cartPrice;
+    document.getElementById('cartBadge').classList.add('show');
+    document.getElementById('switcher').style.display = 'none';
+    window.scrollTo(0,0);
+  }
+  function goToProduct() {
+    document.getElementById('cartPage').style.display = 'none';
+    document.getElementById('productPage').style.display = 'block';
+    document.getElementById('switcher').style.display = 'flex';
+    window.scrollTo(0,0);
+  }
+
+  document.getElementById('demoToggleBtn').addEventListener('click', function() {
+    var inner = document.getElementById('demoInner');
+    var arrow = document.getElementById('demoArrow');
+    var isOpen = inner.style.display === 'block';
+    inner.style.display = isOpen ? 'none' : 'block';
+    arrow.style.transform = isOpen ? '' : 'rotate(90deg)';
+  });
+
+  document.getElementById('checkBtn').addEventListener('click', function() {
+    var val = document.getElementById('serialInput').value.trim().toUpperCase();
+    document.getElementById('demoLicenseWrap').style.display = 'none';
+    setCart(false);
+    if (!val) { setHint('Please enter a serial number.', '#DC2626'); return; }
+    if (CODE1.indexOf(val) !== -1) { setHint('Please check the serial number of your scanner.', '#555'); showPopup(1); }
+    else if (CODE2.indexOf(val) !== -1) { setHint('Please check the serial number of your scanner.', '#555'); showPopup(2); }
+    else if (CODE3.indexOf(val) !== -1) { setHint('Serial number verified.', '#059669'); cartPrice = '$2,000.00'; setCart(true); showDemoInput(); }
+    else if (CODE4.indexOf(val) !== -1) { setHint('Please check the serial number of your scanner.', '#555'); showPopup(3); }
+    else { setHint('Invalid serial number is entered', '#DC2626'); }
+  });
+
+  document.getElementById('demoCheckBtn').addEventListener('click', function() {
+    var val = document.getElementById('demoInput').value.trim().toUpperCase();
+    var msg = document.getElementById('demoMsg');
+    if (DEMO.indexOf(val) !== -1) {
+      msg.textContent = 'Demo license verified.'; msg.style.color = '#059669';
+      var p = document.getElementById('priceDisplay');
+      p.textContent = '$0'; p.style.color = '#059669';
+      cartPrice = '$0.00'; setCart(true);
+    } else {
+      msg.textContent = 'Invalid demo license code. Please try again.'; msg.style.color = '#DC2626'; setCart(false);
+    }
+  });
+
+  document.getElementById('demoInput').addEventListener('input', function() {
+    document.getElementById('demoMsg').textContent = ''; setCart(false);
+  });
+
+  document.getElementById('addToCartBtn').addEventListener('click', function() {
+    if (this.classList.contains('active')) goToCart();
+  });
+  document.getElementById('cartIconWrap').addEventListener('click', function() {
+    if (document.getElementById('cartBadge').classList.contains('show')) goToCart();
+  });
+  document.getElementById('continueShoppingBtn').addEventListener('click', goToProduct);
+  document.getElementById('removeItemBtn').addEventListener('click', function() {
+    document.getElementById('cartBadge').classList.remove('show');
+    goToProduct(); setCart(false);
+    var p = document.getElementById('priceDisplay');
+    p.textContent = '$2,000'; p.style.color = '#111';
+    setHint('Please check the serial number of your scanner.', '#555');
+    document.getElementById('demoLicenseWrap').style.display = 'none';
+  });
+
+  document.getElementById('startBtn1').addEventListener('click', applyFreeAccess);
+  document.getElementById('startBtn2').addEventListener('click', applyFreeAccess);
+  document.getElementById('startBtn3').addEventListener('click', applyFreeAccess);
+  document.getElementById('buyBtn2').addEventListener('click', applyPaidAccess);
+  document.getElementById('buyBtn3').addEventListener('click', applyPaidAccess);
+  document.getElementById('closeOv1').addEventListener('click', function() { closePopup('ov1'); });
+  document.getElementById('closeOv2').addEventListener('click', function() { closePopup('ov2'); });
+  document.getElementById('closeOv3').addEventListener('click', function() { closePopup('ov3'); });
+
+  document.getElementById('swOff').addEventListener('click', function() { closePopup('ov1'); closePopup('ov2'); closePopup('ov3'); });
+  document.getElementById('sw1').addEventListener('click', function() { showPopup(1); });
+  document.getElementById('sw2').addEventListener('click', function() { showPopup(2); });
+  document.getElementById('sw3').addEventListener('click', function() { showPopup(3); });
+});
+</script>
+</body>
+</html>
