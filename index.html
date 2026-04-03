@@ -60,21 +60,30 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
 .check-btn.loading .spinner { display:block; }
 .check-btn.loading .btn-label { display:none; }
 @keyframes spin { to { transform:rotate(360deg); } }
-.serial-hint { font-size:13px; color:#555; margin-bottom:16px; min-height:20px; transition:color .2s; }
+.serial-hint { font-size:13px; color:#555; margin-bottom:12px; min-height:20px; transition:color .2s; }
 .serial-hint.hint-success { color:#059669; font-weight:600; }
 .serial-hint.hint-error   { color:#DC2626; font-weight:600; }
 
-/* ── Page Policy Box ── */
-.policy-wrap { display:none; margin-bottom:16px; border:1.5px solid #E5E7EB; border-radius:10px; overflow:hidden; }
-.policy-header { background:#F9FAFB; padding:9px 14px; border-bottom:1px solid #E5E7EB; display:flex; align-items:center; gap:6px; }
-.policy-header-title { font-size:11px; font-weight:800; color:#374151; text-transform:uppercase; letter-spacing:.09em; }
-.policy-body { padding:11px 14px; display:flex; flex-direction:column; gap:8px; }
-.policy-item { display:flex; align-items:flex-start; gap:9px; }
-.policy-item input[type="checkbox"] { margin-top:2px; width:14px; height:14px; flex-shrink:0; accent-color:#2250d9; cursor:pointer; }
-.policy-item label { font-size:12px; color:#374151; line-height:1.55; cursor:pointer; }
-.policy-item label a { color:#2250d9; text-decoration:underline; }
-.policy-divider { height:1px; background:#F3F4F6; }
-.req-badge { display:inline-block; font-size:9px; font-weight:700; color:#DC2626; background:#FEF2F2; border:1px solid #FECACA; border-radius:4px; padding:1px 5px; margin-left:4px; vertical-align:middle; }
+/* ── Key Terms block (product page) ── */
+.key-terms-wrap { display:none; border:1.5px solid #D1D5DB; border-radius:8px; overflow:hidden; margin-bottom:12px; }
+.key-terms-title { font-size:13px; font-weight:700; color:#111; padding:10px 14px 6px; }
+.key-terms-scroll { height:110px; overflow-y:auto; padding:4px 14px 10px; border-bottom:1px solid #E5E7EB; }
+.key-terms-scroll ul { list-style:disc; padding-left:18px; }
+.key-terms-scroll li { font-size:12px; color:#374151; line-height:1.65; padding:1px 0; }
+.key-terms-scroll::-webkit-scrollbar { width:6px; }
+.key-terms-scroll::-webkit-scrollbar-track { background:#F3F4F6; }
+.key-terms-scroll::-webkit-scrollbar-thumb { background:#D1D5DB; border-radius:3px; }
+.key-terms-checks { padding:10px 14px 4px; display:flex; flex-direction:column; gap:8px; }
+.key-terms-check-item { display:flex; align-items:flex-start; gap:8px; }
+.key-terms-check-item input[type="checkbox"] { margin-top:2px; width:14px; height:14px; flex-shrink:0; accent-color:#2250d9; cursor:pointer; }
+.key-terms-check-item label { font-size:12px; color:#374151; line-height:1.55; cursor:pointer; }
+.key-terms-footer { padding:4px 14px 10px; }
+.key-terms-footer a { font-size:12px; color:#2250d9; text-decoration:underline; cursor:pointer; }
+
+/* ── Demo checkbox ── */
+.demo-check-wrap { display:none; align-items:flex-start; gap:9px; padding:10px 14px; background:#FFFBEB; border:1.5px solid #FDE68A; border-radius:10px; margin-bottom:12px; }
+.demo-check-wrap input[type="checkbox"] { margin-top:2px; width:14px; height:14px; flex-shrink:0; accent-color:#D97706; cursor:pointer; }
+.demo-check-wrap label { font-size:12px; color:#374151; line-height:1.55; cursor:pointer; }
 
 .add-cart-btn { width:100%; padding:14px; background:#e8e8e8; color:#aaa; border:none; border-radius:2px; font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; cursor:not-allowed; margin-bottom:28px; transition:background .25s,color .25s; }
 .add-cart-btn.active { background:#2250d9; color:#fff; cursor:pointer; }
@@ -92,6 +101,8 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
 .caution-list li::before { content:'•'; flex-shrink:0; }
 .share-row { display:flex; gap:14px; margin-top:8px; }
 .share-btn { font-size:12px; color:#333; display:flex; align-items:center; gap:5px; text-decoration:none; cursor:pointer; }
+
+/* EXPRESS */
 #appExpress .exp-product-wrap { max-width:1200px; margin:0 auto; display:flex; padding:30px 40px 80px; }
 .thumb-col { display:flex; flex-direction:column; gap:8px; margin-right:16px; padding-top:4px; }
 .thumb { width:70px; height:70px; border:1.5px solid #e0e0e0; border-radius:4px; background:#f5f5f5; display:flex; align-items:center; justify-content:center; cursor:pointer; }
@@ -125,6 +136,8 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
 .compat-list { list-style:none; }
 .compat-list li { font-size:13px; color:#444; padding:3px 0; display:flex; gap:6px; }
 .compat-list li::before { content:'•'; flex-shrink:0; }
+
+/* CART */
 .cart-wrap { max-width:1100px; margin:0 auto; padding:48px 40px 80px; }
 .cart-title { font-size:32px; font-weight:400; color:#111; text-align:center; margin-bottom:10px; }
 .cart-continue { text-align:center; margin-bottom:40px; }
@@ -145,6 +158,8 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
 .cart-subtotal-value { font-size:15px; font-weight:600; color:#111; }
 .cart-checkout-btn { width:100%; padding:14px; background:#2250d9; color:#fff; border:none; font-size:13px; font-weight:700; cursor:pointer; letter-spacing:.1em; text-transform:uppercase; margin-bottom:12px; border-radius:2px; }
 .cart-note { font-size:12px; color:#555; text-align:center; line-height:1.5; }
+
+/* CHECKOUT */
 .checkout-wrap { max-width:960px; margin:0 auto; padding:48px 40px 80px; }
 .checkout-header { display:flex; align-items:center; gap:16px; margin-bottom:32px; }
 .checkout-back { background:none; border:none; cursor:pointer; font-size:13px; color:#2250d9; font-weight:700; }
@@ -192,40 +207,98 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
 .checkout-pay-btn { width:100%; padding:14px; background:#2250d9; color:#fff; border:none; font-size:13px; font-weight:700; cursor:pointer; letter-spacing:.1em; text-transform:uppercase; margin-top:16px; border-radius:6px; }
 .secure-note { display:flex; align-items:center; justify-content:center; gap:5px; margin-top:10px; font-size:11px; color:#9CA3AF; }
 
-/* OVERLAY / POPUP */
+/* OVERLAY / POPUP — Figma design */
 .overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.55); backdrop-filter:blur(3px); z-index:500; align-items:center; justify-content:center; padding:20px; }
 .overlay.show { display:flex; }
 @keyframes popIn { from{opacity:0;transform:scale(.9) translateY(20px)} to{opacity:1;transform:scale(1) translateY(0)} }
-.popup { width:100%; max-width:457px; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 16px 24px rgba(0,0,0,.12),0 0 4px rgba(0,0,0,.12); animation:popIn .3s cubic-bezier(.34,1.4,.64,1); display:flex; flex-direction:column; position:relative; }
-.pm-close { position:absolute; top:12px; right:12px; width:28px; height:28px; border-radius:50%; background:rgba(0,0,0,.08); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; color:#555; font-size:14px; z-index:10; }
+
+/* Popup shell — horizontal split layout */
+.popup {
+  width:100%; max-width:686px; background:#fff;
+  border-radius:12px; overflow:hidden;
+  box-shadow:0 16px 48px rgba(0,0,0,.18);
+  animation:popIn .3s cubic-bezier(.34,1.4,.64,1);
+  display:flex; flex-direction:row; position:relative;
+  font-family:'Roboto',sans-serif;
+}
+
+/* LEFT panel — blue gradient */
+.pm-left {
+  width:205px; flex-shrink:0;
+  background:radial-gradient(ellipse at 100% 80%, #60b3ff 0%, #41a2ff 50%, #2291ff 100%);
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-end;
+  padding:32px 24px; gap:10px; position:relative; overflow:hidden; min-height:412px;
+}
+/* Medit M symbol — white stripes clipped to inverted-triangle */
+.pm-left-symbol {
+  position:absolute; top:38px; left:-1px; width:166px; height:130px; pointer-events:none;
+}
+.pm-left-symbol svg { width:100%; height:100%; }
+/* Scanner Confirmed badge */
+.pm-confirmed-badge {
+  display:flex; align-items:center; gap:6px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(23,116,227,.4);
+  border-radius:4px; padding:2px 8px;
+  width:100%; min-height:39px;
+}
+.pm-confirmed-check {
+  width:16px; height:16px; border-radius:11px;
+  background:#39cc52; display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.pm-confirmed-check svg { width:10px; height:10px; }
+.pm-confirmed-text { font-family:'Inter',sans-serif; font-size:12px; color:#fff; white-space:nowrap; }
+.pm-serial { font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:#fff; white-space:nowrap; }
+
+/* RIGHT panel */
+.pm-right {
+  flex:1; background:#fff;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:32px; gap:20px; min-height:412px;
+}
+.pm-close {
+  position:absolute; top:12px; right:12px;
+  width:28px; height:28px; border-radius:50%;
+  background:rgba(0,0,0,.08); border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  color:#555; font-size:15px; line-height:1; z-index:10;
+  font-family:sans-serif;
+}
 .pm-close:hover { background:rgba(0,0,0,.16); }
-.pm-body { padding:20px 20px 0; }
-.pm-tag { display:inline-flex; align-items:center; gap:6px; background:#eef5fd; border-radius:9999px; padding:4px 10px; margin-bottom:12px; }
-.pm-tag span { font-size:12px; color:#1774e3; }
-.pm-offer-title { font-size:40px; font-weight:700; color:#000; line-height:1; margin-bottom:10px; }
-.pm-desc { font-size:16px; color:#000; line-height:20px; margin:0 0 16px; }
+.pm-tag {
+  display:inline-flex; align-items:center; gap:4px;
+  background:#eef5fd; border-radius:9999px; padding:4px 8px; align-self:flex-start;
+}
+.pm-tag-dot { width:6px; height:6px; border-radius:50%; background:#1774e3; flex-shrink:0; }
+.pm-tag-text { font-size:12px; color:#1774e3; }
+.pm-offer-title { font-size:40px; font-weight:700; color:#1e2329; line-height:1; }
+.pm-offer-title .off { font-weight:300; }
+.pm-desc { font-size:14px; color:#000; line-height:20px; margin:0; }
+.pm-btn-module { display:flex; flex-direction:column; align-items:center; gap:8px; width:100%; }
+.pm-btn-primary {
+  width:100%; height:48px; background:#1774e3; color:#fff;
+  border:none; border-radius:10px; font-size:16px; font-weight:600;
+  font-family:'Inter',sans-serif; cursor:pointer; transition:background .2s;
+}
+.pm-btn-primary:hover { background:#1560c0; }
+.pm-btn-secondary {
+  height:40px; min-width:126px; background:none; border:none;
+  font-size:14px; font-weight:600; font-family:'Inter',sans-serif;
+  color:#6f747d; cursor:pointer; border-radius:8px;
+}
+.pm-btn-secondary:hover { color:#333; }
+.pm-divider { height:1px; background:#d9d9d9; width:100%; flex-shrink:0; }
+.pm-notice { display:flex; gap:6px; align-items:flex-start; }
+.pm-notice-icon { width:14px; height:14px; flex-shrink:0; margin-top:1px; }
+.pm-notice-text { font-size:12px; color:rgba(0,0,0,.5); line-height:18px; }
 
-/* ── Popup Policy ── */
-.pm-policy { margin:0 20px 16px; border:1.5px solid #E5E7EB; border-radius:10px; overflow:hidden; }
-.pm-policy-header { background:#F9FAFB; padding:8px 13px; border-bottom:1px solid #E5E7EB; display:flex; align-items:center; gap:5px; }
-.pm-policy-title { font-size:10px; font-weight:800; color:#374151; text-transform:uppercase; letter-spacing:.09em; }
-.pm-policy-body { padding:10px 13px; display:flex; flex-direction:column; gap:8px; background:#fff; }
-.pm-policy-item { display:flex; align-items:flex-start; gap:8px; }
-.pm-policy-item input[type="checkbox"] { margin-top:2px; width:14px; height:14px; flex-shrink:0; accent-color:#1774e3; cursor:pointer; }
-.pm-policy-item label { font-size:12px; color:#374151; line-height:1.5; cursor:pointer; }
-.pm-policy-item label a { color:#1774e3; text-decoration:underline; }
-.pm-policy-divider { height:1px; background:#F3F4F6; }
-
-.pm-btn-wrap { padding:12px 20px 16px; width:100%; display:flex; flex-direction:column; align-items:center; gap:12px; }
-.pm-btn-primary { width:100%; height:48px; background:#1774e3; color:#fff; border:none; border-radius:10px; font-size:16px; font-weight:600; cursor:pointer; transition:background .2s, opacity .2s; }
-.pm-btn-primary:hover:not([disabled]) { background:#1560c0; }
-.pm-btn-primary[disabled] { background:#93C5FD; cursor:not-allowed; }
-.pm-btn-secondary { height:24px; background:none; border:none; font-size:12px; font-weight:600; color:#6f747d; cursor:pointer; transition:opacity .2s; }
-.pm-btn-secondary:hover:not([disabled]) { color:#333; }
-.pm-btn-secondary[disabled] { opacity:.35; cursor:not-allowed; }
-.pm-border { height:1px; background:#d9d9d9; width:100%; margin:0 0 0; }
-.pm-notice { padding:10px 16px 14px; display:flex; gap:6px; align-items:flex-start; width:100%; }
-.pm-notice p { font-size:12px; color:rgba(0,0,0,.5); line-height:18px; margin:0; }
+/* Responsive — narrow screens */
+@media (max-width:600px) {
+  .popup { flex-direction:column; max-width:400px; }
+  .pm-left { width:100%; min-height:160px; flex-direction:row; justify-content:center; gap:16px; padding:20px 24px; }
+  .pm-left-symbol { display:none; }
+}
 
 /* SWITCHER */
 .switcher { position:fixed; bottom:18px; left:50%; transform:translateX(-50%); display:flex; gap:6px; align-items:center; background:rgba(255,255,255,.97); border-radius:30px; padding:6px 12px; box-shadow:0 4px 24px rgba(0,0,0,.18); z-index:600; }
@@ -290,9 +363,17 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
           <button class="check-btn" id="i600CheckBtn"><span class="btn-label">CHECK</span><div class="spinner"></div></button>
         </div>
         <div class="serial-hint" id="i600Hint">Please check the serial number of your scanner.</div>
-        <div class="policy-wrap" id="i600PolicyWrap">
-          <div class="policy-header"><span style="font-size:13px;">📋</span><span class="policy-header-title">Purchase Agreement</span></div>
-          <div class="policy-body" id="i600PolicyBody"></div>
+        <!-- Key Terms: shown after serial verified -->
+        <div class="key-terms-wrap" id="i600KeyTermsWrap">
+          <div class="key-terms-title">Key Terms</div>
+          <div class="key-terms-scroll" id="i600KTScroll"></div>
+          <div class="key-terms-checks" id="i600KTChecks"></div>
+          <div class="key-terms-footer"><a href="#" target="_blank">View Full Terms</a></div>
+        </div>
+        <!-- Demo checkbox: shown after No Thanks -->
+        <div class="demo-check-wrap" id="i600DemoWrap">
+          <input type="checkbox" id="i600DemoCb"/>
+          <label for="i600DemoCb">🎟️ I have a <strong>Demo License</strong> — I will enter the demo code at checkout.</label>
         </div>
         <button class="add-cart-btn" id="i600AddCartBtn" disabled>ADD TO CART</button>
         <p class="prod-desc-text">Unlock the full potential of your Medit scanner with <strong>i600 Feature Upgrade</strong>.</p>
@@ -312,6 +393,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
       </div>
     </div>
   </div>
+  <!-- i600 Cart / Checkout pages unchanged -->
   <div id="i600CartPage" style="display:none;min-height:60vh;">
     <div class="cart-wrap">
       <h1 class="cart-title">Cart</h1>
@@ -343,7 +425,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
         <div class="checkout-summary-col"><div class="summary-card">
           <div class="summary-title">Order Summary</div>
           <div class="summary-item"><div class="summary-item-img">🦷<span class="summary-item-qty">1</span></div><div class="summary-item-name">i600 Feature Upgrade</div><div class="summary-item-price" id="i600SummaryItemPrice">$3,000.00</div></div>
-          <div id="i600DiscountSection" style="margin-bottom:14px;"><button class="discount-toggle-btn" id="i600DiscountToggle"><span id="i600DiscountArrow" style="font-size:10px;transition:transform .2s;">▶</span> Have a discount code?</button><div class="discount-inner" id="i600DiscountInner"><div class="discount-row"><input class="discount-input" id="i600DiscountInput" type="text" placeholder="Enter discount code"/><button class="discount-apply-btn" id="i600DiscountApply">APPLY</button></div><div class="discount-msg" id="i600DiscountMsg"></div></div></div>
+          <div id="i600DiscountSection" style="margin-bottom:14px;display:none;"><button class="discount-toggle-btn" id="i600DiscountToggle"><span id="i600DiscountArrow" style="font-size:10px;transition:transform .2s;">▶</span> Have a discount code?</button><div class="discount-inner" id="i600DiscountInner"><div class="discount-row"><input class="discount-input" id="i600DiscountInput" type="text" placeholder="Enter discount code"/><button class="discount-apply-btn" id="i600DiscountApply">APPLY</button></div><div class="discount-msg" id="i600DiscountMsg"></div></div></div>
           <div class="summary-row"><span class="summary-row-label">Subtotal</span><span class="summary-row-value" id="i600SummarySubtotal">$3,000.00</span></div>
           <div class="summary-row"><span class="summary-row-label">Shipping</span><span class="summary-row-value">Free</span></div>
           <div class="summary-discount-row" id="i600SummaryDiscountRow" style="display:none"><span class="summary-discount-label">Discount</span><span class="summary-discount-value" id="i600SummaryDiscountValue"></span></div>
@@ -386,9 +468,17 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
           <button class="exp-check-btn" id="expCheckBtn">CHECK</button>
         </div>
         <div id="expSerialHint">Please check the serial number of your scanner.</div>
-        <div class="policy-wrap" id="expPolicyWrap" style="margin-top:10px;">
-          <div class="policy-header"><span style="font-size:13px;">📋</span><span class="policy-header-title">Purchase Agreement</span></div>
-          <div class="policy-body" id="expPolicyBody"></div>
+        <!-- Key Terms: shown after serial verified -->
+        <div class="key-terms-wrap" id="expKeyTermsWrap" style="margin-top:10px;">
+          <div class="key-terms-title">Key Terms</div>
+          <div class="key-terms-scroll" id="expKTScroll"></div>
+          <div class="key-terms-checks" id="expKTChecks"></div>
+          <div class="key-terms-footer"><a href="#" target="_blank">View Full Terms</a></div>
+        </div>
+        <!-- Demo checkbox: shown after No Thanks -->
+        <div class="demo-check-wrap" id="expDemoWrap">
+          <input type="checkbox" id="expDemoCb"/>
+          <label for="expDemoCb">🎟️ I have a <strong>Demo License</strong> — I will enter the demo code at checkout.</label>
         </div>
         <button id="expAddToCartBtn" disabled>ADD TO CART</button>
         <p class="prod-desc"><strong>Medit Link Express (Mac)</strong> enables you to use the Medit Link Express application on Mac, providing an intuitive user experience designed for ease of use.</p>
@@ -431,7 +521,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
         <div class="checkout-summary-col"><div class="summary-card">
           <div class="summary-title">Order Summary</div>
           <div class="summary-item"><div class="summary-item-img">💻<span class="summary-item-qty">1</span></div><div class="summary-item-name">Medit Link Express (Mac)</div><div class="summary-item-price" id="expSummaryItemPrice">$2,000.00</div></div>
-          <div id="expDiscountSection" style="margin-bottom:14px;"><button class="discount-toggle-btn" id="expDiscountToggle"><span id="expDiscountArrow" style="font-size:10px;transition:transform .2s;">▶</span> Have a discount code?</button><div class="discount-inner" id="expDiscountInner"><div class="discount-row"><input class="discount-input" id="expDiscountInput" type="text" placeholder="Enter discount code"/><button class="discount-apply-btn" id="expDiscountApply">APPLY</button></div><div class="discount-msg" id="expDiscountMsg"></div></div></div>
+          <div id="expDiscountSection" style="margin-bottom:14px;display:none;"><button class="discount-toggle-btn" id="expDiscountToggle"><span id="expDiscountArrow" style="font-size:10px;transition:transform .2s;">▶</span> Have a discount code?</button><div class="discount-inner" id="expDiscountInner"><div class="discount-row"><input class="discount-input" id="expDiscountInput" type="text" placeholder="Enter discount code"/><button class="discount-apply-btn" id="expDiscountApply">APPLY</button></div><div class="discount-msg" id="expDiscountMsg"></div></div></div>
           <div class="summary-row"><span class="summary-row-label">Subtotal</span><span class="summary-row-value" id="expSummarySubtotal">$2,000.00</span></div>
           <div class="summary-row"><span class="summary-row-label">Shipping</span><span class="summary-row-value">Free</span></div>
           <div class="summary-discount-row" id="expSummaryDiscountRow" style="display:none"><span class="summary-discount-label">Discount</span><span class="summary-discount-value" id="expSummaryDiscountValue"></span></div>
@@ -444,108 +534,250 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
   </div>
 </div>
 
-<!-- ═══ POPUPS ═══ -->
-<!-- 팝업 6개: 버튼은 HTML에 직접 선언, 체크박스는 JS가 주입 -->
+<!-- ═══ POPUP TEMPLATE (shared SVG assets) ═══ -->
+<!-- Medit symbol SVG (white stripes clipped to inverted-triangle) reused across all popups -->
 
-<!-- i600 Popup 1: Free/Permanent -->
-<div class="overlay" id="ov1"><div class="popup">
-  <button class="pm-close" id="pm-close-ov1">✕</button>
-  <div class="pm-body">
-    <div class="pm-tag"><svg width="6" height="6" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="#1774e3"/></svg><span>Special Offer</span></div>
-    <div class="pm-offer-title">$3000 <span style="font-size:22px;font-weight:700;color:#e53935;">OFF</span></div>
-    <p class="pm-desc">Start now - experience a completely different way to scan with the same scanner.</p>
+<!-- i600 / Code#1: $3000 OFF -->
+<div class="overlay" id="ov1">
+  <div class="popup">
+    <button class="pm-close" id="pm-close-ov1">✕</button>
+    <!-- LEFT -->
+    <div class="pm-left">
+      <div class="pm-left-symbol">
+        <svg viewBox="0 0 166 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><clipPath id="mc1"><path d="M0 0 L166 0 L166 130 L83 72 L0 130 Z"/></clipPath></defs>
+          <g clip-path="url(#mc1)" opacity="0.28">
+            <rect x="0" y="0"   width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="28"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="56"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="84"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="112" width="166" height="20" rx="10" fill="white"/>
+          </g>
+        </svg>
+      </div>
+      <div class="pm-confirmed-badge">
+        <div class="pm-confirmed-check">
+          <svg viewBox="0 0 10 10" fill="none"><path d="M2 5.2l2.2 2.2 3.8-4.4" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="pm-confirmed-text">Scanner Confirmed</span>
+      </div>
+      <span class="pm-serial" id="ov1Serial">—</span>
+    </div>
+    <!-- RIGHT -->
+    <div class="pm-right">
+      <div class="pm-tag"><div class="pm-tag-dot"></div><span class="pm-tag-text">Special Offer</span></div>
+      <div class="pm-offer-title">$3000 <span class="off">OFF</span></div>
+      <p class="pm-desc">Start now - experience a completely different way to scan with the same scanner.</p>
+      <div class="pm-btn-module">
+        <button class="pm-btn-primary" id="ov1BtnPrimary">Start Your Trial</button>
+      </div>
+      <div class="pm-divider"></div>
+      <div class="pm-notice">
+        <svg class="pm-notice-icon" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="#9CA3AF"/><rect x="6.3" y="6" width="1.4" height="4.5" rx=".7" fill="#9CA3AF"/><circle cx="7" cy="4.2" r=".8" fill="#9CA3AF"/></svg>
+        <span class="pm-notice-text">Promotion valid until December 31, 2026.<br>Offer terms and duration are subject to change without prior notice.</span>
+      </div>
+    </div>
   </div>
-  <div class="pm-policy"><div class="pm-policy-header"><span style="font-size:11px;">📋</span><span class="pm-policy-title">License Agreement</span></div><div class="pm-policy-body" id="ov1Body"></div></div>
-  <div class="pm-btn-wrap">
-    <button class="pm-btn-primary" id="ov1BtnPrimary" disabled>Start Your Trial</button>
-  </div>
-  <div class="pm-border"></div>
-  <div class="pm-notice"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="7" cy="7" r="6.5" stroke="#9CA3AF"/><rect x="6.3" y="6" width="1.4" height="4.5" rx=".7" fill="#9CA3AF"/><circle cx="7" cy="4.2" r=".8" fill="#9CA3AF"/></svg><p>Promotion valid until December 31, 2026.<br>Offer terms and duration are subject to change without prior notice.</p></div>
-</div></div>
+</div>
 
-<!-- i600 Popup 2: 3-month trial -->
-<div class="overlay" id="ov2"><div class="popup">
-  <button class="pm-close" id="pm-close-ov2">✕</button>
-  <div class="pm-body">
-    <div class="pm-tag"><svg width="6" height="6" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="#1774e3"/></svg><span>Special Offer</span></div>
-    <div class="pm-offer-title">3 month trial</div>
-    <p class="pm-desc">Try it free for 3 months - experience a completely different way to scan with the same scanner.</p>
+<!-- i600 / Code#2: 3 month trial -->
+<div class="overlay" id="ov2">
+  <div class="popup">
+    <button class="pm-close" id="pm-close-ov2">✕</button>
+    <div class="pm-left">
+      <div class="pm-left-symbol">
+        <svg viewBox="0 0 166 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><clipPath id="mc2"><path d="M0 0 L166 0 L166 130 L83 72 L0 130 Z"/></clipPath></defs>
+          <g clip-path="url(#mc2)" opacity="0.28">
+            <rect x="0" y="0"   width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="28"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="56"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="84"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="112" width="166" height="20" rx="10" fill="white"/>
+          </g>
+        </svg>
+      </div>
+      <div class="pm-confirmed-badge">
+        <div class="pm-confirmed-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.2l2.2 2.2 3.8-4.4" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="pm-confirmed-text">Scanner Confirmed</span>
+      </div>
+      <span class="pm-serial" id="ov2Serial">—</span>
+    </div>
+    <div class="pm-right">
+      <div class="pm-tag"><div class="pm-tag-dot"></div><span class="pm-tag-text">Special Offer</span></div>
+      <div class="pm-offer-title">3 month trial</div>
+      <p class="pm-desc">Try it free for 3 months - experience a completely different way to scan with the same scanner.</p>
+      <div class="pm-btn-module">
+        <button class="pm-btn-primary" id="ov2BtnPrimary">Start Your Trial</button>
+        <button class="pm-btn-secondary" id="ov2BtnSecondary">No, Thanks</button>
+      </div>
+      <div class="pm-divider"></div>
+      <div class="pm-notice">
+        <svg class="pm-notice-icon" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="#9CA3AF"/><rect x="6.3" y="6" width="1.4" height="4.5" rx=".7" fill="#9CA3AF"/><circle cx="7" cy="4.2" r=".8" fill="#9CA3AF"/></svg>
+        <span class="pm-notice-text">Promotion valid until December 31, 2026.<br>Offer terms and duration are subject to change without prior notice.</span>
+      </div>
+    </div>
   </div>
-  <div class="pm-policy"><div class="pm-policy-header"><span style="font-size:11px;">📋</span><span class="pm-policy-title">Trial Agreement</span></div><div class="pm-policy-body" id="ov2Body"></div></div>
-  <div class="pm-btn-wrap">
-    <button class="pm-btn-primary" id="ov2BtnPrimary" disabled>Start Your Trial</button>
-    <button class="pm-btn-secondary" id="ov2BtnSecondary" disabled>No, Thanks</button>
-  </div>
-  <div class="pm-border"></div>
-  <div class="pm-notice"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="7" cy="7" r="6.5" stroke="#9CA3AF"/><rect x="6.3" y="6" width="1.4" height="4.5" rx=".7" fill="#9CA3AF"/><circle cx="7" cy="4.2" r=".8" fill="#9CA3AF"/></svg><p>Promotion valid until December 31, 2026.<br>Offer terms and duration are subject to change without prior notice.</p></div>
-</div></div>
+</div>
 
-<!-- i600 Popup 3: 1-month trial -->
-<div class="overlay" id="ov3"><div class="popup">
-  <button class="pm-close" id="pm-close-ov3">✕</button>
-  <div class="pm-body">
-    <div class="pm-tag"><svg width="6" height="6" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="#1774e3"/></svg><span>Special Offer</span></div>
-    <div class="pm-offer-title">1 month trial</div>
-    <p class="pm-desc">Try it free for 1 month - experience a completely different way to scan with the same scanner.</p>
+<!-- i600 / Code#3: 1 month trial -->
+<div class="overlay" id="ov3">
+  <div class="popup">
+    <button class="pm-close" id="pm-close-ov3">✕</button>
+    <div class="pm-left">
+      <div class="pm-left-symbol">
+        <svg viewBox="0 0 166 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><clipPath id="mc3"><path d="M0 0 L166 0 L166 130 L83 72 L0 130 Z"/></clipPath></defs>
+          <g clip-path="url(#mc3)" opacity="0.28">
+            <rect x="0" y="0"   width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="28"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="56"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="84"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="112" width="166" height="20" rx="10" fill="white"/>
+          </g>
+        </svg>
+      </div>
+      <div class="pm-confirmed-badge">
+        <div class="pm-confirmed-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.2l2.2 2.2 3.8-4.4" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="pm-confirmed-text">Scanner Confirmed</span>
+      </div>
+      <span class="pm-serial" id="ov3Serial">—</span>
+    </div>
+    <div class="pm-right">
+      <div class="pm-tag"><div class="pm-tag-dot"></div><span class="pm-tag-text">Special Offer</span></div>
+      <div class="pm-offer-title">1 month trial</div>
+      <p class="pm-desc">Try it free for 1 month - experience a completely different way to scan with the same scanner.</p>
+      <div class="pm-btn-module">
+        <button class="pm-btn-primary" id="ov3BtnPrimary">Start Your Trial</button>
+        <button class="pm-btn-secondary" id="ov3BtnSecondary">No, Thanks</button>
+      </div>
+      <div class="pm-divider"></div>
+      <div class="pm-notice">
+        <svg class="pm-notice-icon" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="#9CA3AF"/><rect x="6.3" y="6" width="1.4" height="4.5" rx=".7" fill="#9CA3AF"/><circle cx="7" cy="4.2" r=".8" fill="#9CA3AF"/></svg>
+        <span class="pm-notice-text">Promotion valid until December 31, 2026.<br>Offer terms and duration are subject to change without prior notice.</span>
+      </div>
+    </div>
   </div>
-  <div class="pm-policy"><div class="pm-policy-header"><span style="font-size:11px;">📋</span><span class="pm-policy-title">Trial Agreement</span></div><div class="pm-policy-body" id="ov3Body"></div></div>
-  <div class="pm-btn-wrap">
-    <button class="pm-btn-primary" id="ov3BtnPrimary" disabled>Start Your Trial</button>
-    <button class="pm-btn-secondary" id="ov3BtnSecondary" disabled>No, Thanks</button>
-  </div>
-  <div class="pm-border"></div>
-  <div class="pm-notice"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="7" cy="7" r="6.5" stroke="#9CA3AF"/><rect x="6.3" y="6" width="1.4" height="4.5" rx=".7" fill="#9CA3AF"/><circle cx="7" cy="4.2" r=".8" fill="#9CA3AF"/></svg><p>Promotion valid until December 31, 2026.<br>Offer terms and duration are subject to change without prior notice.</p></div>
-</div></div>
+</div>
 
-<!-- Express Popup 1: Free/Permanent -->
-<div class="overlay" id="expOv1"><div class="popup">
-  <button class="pm-close" id="pm-close-expOv1">✕</button>
-  <div class="pm-body">
-    <div class="pm-tag"><svg width="6" height="6" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="#1774e3"/></svg><span>Special Offer</span></div>
-    <div class="pm-offer-title">$2000 <span style="font-size:22px;font-weight:700;color:#e53935;">OFF</span></div>
-    <p class="pm-desc">Start now - experience a completely different way to scan with the same scanner.</p>
+<!-- Express / Code#1: $2000 OFF -->
+<div class="overlay" id="expOv1">
+  <div class="popup">
+    <button class="pm-close" id="pm-close-expOv1">✕</button>
+    <div class="pm-left">
+      <div class="pm-left-symbol">
+        <svg viewBox="0 0 166 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><clipPath id="mc4"><path d="M0 0 L166 0 L166 130 L83 72 L0 130 Z"/></clipPath></defs>
+          <g clip-path="url(#mc4)" opacity="0.28">
+            <rect x="0" y="0"   width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="28"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="56"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="84"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="112" width="166" height="20" rx="10" fill="white"/>
+          </g>
+        </svg>
+      </div>
+      <div class="pm-confirmed-badge">
+        <div class="pm-confirmed-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.2l2.2 2.2 3.8-4.4" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="pm-confirmed-text">Scanner Confirmed</span>
+      </div>
+      <span class="pm-serial" id="expOv1Serial">—</span>
+    </div>
+    <div class="pm-right">
+      <div class="pm-tag"><div class="pm-tag-dot"></div><span class="pm-tag-text">Special Offer</span></div>
+      <div class="pm-offer-title">$2000 <span class="off">OFF</span></div>
+      <p class="pm-desc">Start now - experience a completely different way to scan with the same scanner.</p>
+      <div class="pm-btn-module">
+        <button class="pm-btn-primary" id="expOv1BtnPrimary">Start Your Trial</button>
+      </div>
+      <div class="pm-divider"></div>
+      <div class="pm-notice">
+        <svg class="pm-notice-icon" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="#9CA3AF"/><rect x="6.3" y="6" width="1.4" height="4.5" rx=".7" fill="#9CA3AF"/><circle cx="7" cy="4.2" r=".8" fill="#9CA3AF"/></svg>
+        <span class="pm-notice-text">Promotion valid until December 31, 2026.<br>Offer terms and duration are subject to change without prior notice.</span>
+      </div>
+    </div>
   </div>
-  <div class="pm-policy"><div class="pm-policy-header"><span style="font-size:11px;">📋</span><span class="pm-policy-title">License Agreement</span></div><div class="pm-policy-body" id="expOv1Body"></div></div>
-  <div class="pm-btn-wrap">
-    <button class="pm-btn-primary" id="expOv1BtnPrimary" disabled>Start Your Trial</button>
-  </div>
-  <div class="pm-border"></div>
-  <div class="pm-notice"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="7" cy="7" r="6.5" stroke="#9CA3AF"/><rect x="6.3" y="6" width="1.4" height="4.5" rx=".7" fill="#9CA3AF"/><circle cx="7" cy="4.2" r=".8" fill="#9CA3AF"/></svg><p>Promotion valid until December 31, 2026.<br>Offer terms and duration are subject to change without prior notice.</p></div>
-</div></div>
+</div>
 
-<!-- Express Popup 2: 3-month trial -->
-<div class="overlay" id="expOv2"><div class="popup">
-  <button class="pm-close" id="pm-close-expOv2">✕</button>
-  <div class="pm-body">
-    <div class="pm-tag"><svg width="6" height="6" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="#1774e3"/></svg><span>Special Offer</span></div>
-    <div class="pm-offer-title">3 month trial</div>
-    <p class="pm-desc">Try it free for 3 months - experience a completely different way to scan with the same scanner.</p>
+<!-- Express / Code#2: 3 month trial -->
+<div class="overlay" id="expOv2">
+  <div class="popup">
+    <button class="pm-close" id="pm-close-expOv2">✕</button>
+    <div class="pm-left">
+      <div class="pm-left-symbol">
+        <svg viewBox="0 0 166 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><clipPath id="mc5"><path d="M0 0 L166 0 L166 130 L83 72 L0 130 Z"/></clipPath></defs>
+          <g clip-path="url(#mc5)" opacity="0.28">
+            <rect x="0" y="0"   width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="28"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="56"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="84"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="112" width="166" height="20" rx="10" fill="white"/>
+          </g>
+        </svg>
+      </div>
+      <div class="pm-confirmed-badge">
+        <div class="pm-confirmed-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.2l2.2 2.2 3.8-4.4" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="pm-confirmed-text">Scanner Confirmed</span>
+      </div>
+      <span class="pm-serial" id="expOv2Serial">—</span>
+    </div>
+    <div class="pm-right">
+      <div class="pm-tag"><div class="pm-tag-dot"></div><span class="pm-tag-text">Special Offer</span></div>
+      <div class="pm-offer-title">3 month trial</div>
+      <p class="pm-desc">Try it free for 3 months - experience a completely different way to scan with the same scanner.</p>
+      <div class="pm-btn-module">
+        <button class="pm-btn-primary" id="expOv2BtnPrimary">Start Your Trial</button>
+        <button class="pm-btn-secondary" id="expOv2BtnSecondary">No, Thanks</button>
+      </div>
+      <div class="pm-divider"></div>
+      <div class="pm-notice">
+        <svg class="pm-notice-icon" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="#9CA3AF"/><rect x="6.3" y="6" width="1.4" height="4.5" rx=".7" fill="#9CA3AF"/><circle cx="7" cy="4.2" r=".8" fill="#9CA3AF"/></svg>
+        <span class="pm-notice-text">Promotion valid until December 31, 2026.<br>Offer terms and duration are subject to change without prior notice.</span>
+      </div>
+    </div>
   </div>
-  <div class="pm-policy"><div class="pm-policy-header"><span style="font-size:11px;">📋</span><span class="pm-policy-title">Trial Agreement</span></div><div class="pm-policy-body" id="expOv2Body"></div></div>
-  <div class="pm-btn-wrap">
-    <button class="pm-btn-primary" id="expOv2BtnPrimary" disabled>Start Your Trial</button>
-    <button class="pm-btn-secondary" id="expOv2BtnSecondary" disabled>No, Thanks</button>
-  </div>
-  <div class="pm-border"></div>
-  <div class="pm-notice"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="7" cy="7" r="6.5" stroke="#9CA3AF"/><rect x="6.3" y="6" width="1.4" height="4.5" rx=".7" fill="#9CA3AF"/><circle cx="7" cy="4.2" r=".8" fill="#9CA3AF"/></svg><p>Promotion valid until December 31, 2026.<br>Offer terms and duration are subject to change without prior notice.</p></div>
-</div></div>
+</div>
 
-<!-- Express Popup 3: 1-month trial -->
-<div class="overlay" id="expOv3"><div class="popup">
-  <button class="pm-close" id="pm-close-expOv3">✕</button>
-  <div class="pm-body">
-    <div class="pm-tag"><svg width="6" height="6" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="#1774e3"/></svg><span>Special Offer</span></div>
-    <div class="pm-offer-title">1 month trial</div>
-    <p class="pm-desc">Try it free for 1 month - experience a completely different way to scan with the same scanner.</p>
+<!-- Express / Code#3: 1 month trial -->
+<div class="overlay" id="expOv3">
+  <div class="popup">
+    <button class="pm-close" id="pm-close-expOv3">✕</button>
+    <div class="pm-left">
+      <div class="pm-left-symbol">
+        <svg viewBox="0 0 166 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><clipPath id="mc6"><path d="M0 0 L166 0 L166 130 L83 72 L0 130 Z"/></clipPath></defs>
+          <g clip-path="url(#mc6)" opacity="0.28">
+            <rect x="0" y="0"   width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="28"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="56"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="84"  width="166" height="20" rx="10" fill="white"/>
+            <rect x="0" y="112" width="166" height="20" rx="10" fill="white"/>
+          </g>
+        </svg>
+      </div>
+      <div class="pm-confirmed-badge">
+        <div class="pm-confirmed-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.2l2.2 2.2 3.8-4.4" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="pm-confirmed-text">Scanner Confirmed</span>
+      </div>
+      <span class="pm-serial" id="expOv3Serial">—</span>
+    </div>
+    <div class="pm-right">
+      <div class="pm-tag"><div class="pm-tag-dot"></div><span class="pm-tag-text">Special Offer</span></div>
+      <div class="pm-offer-title">1 month trial</div>
+      <p class="pm-desc">Try it free for 1 month - experience a completely different way to scan with the same scanner.</p>
+      <div class="pm-btn-module">
+        <button class="pm-btn-primary" id="expOv3BtnPrimary">Start Your Trial</button>
+        <button class="pm-btn-secondary" id="expOv3BtnSecondary">No, Thanks</button>
+      </div>
+      <div class="pm-divider"></div>
+      <div class="pm-notice">
+        <svg class="pm-notice-icon" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="#9CA3AF"/><rect x="6.3" y="6" width="1.4" height="4.5" rx=".7" fill="#9CA3AF"/><circle cx="7" cy="4.2" r=".8" fill="#9CA3AF"/></svg>
+        <span class="pm-notice-text">Promotion valid until December 31, 2026.<br>Offer terms and duration are subject to change without prior notice.</span>
+      </div>
+    </div>
   </div>
-  <div class="pm-policy"><div class="pm-policy-header"><span style="font-size:11px;">📋</span><span class="pm-policy-title">Trial Agreement</span></div><div class="pm-policy-body" id="expOv3Body"></div></div>
-  <div class="pm-btn-wrap">
-    <button class="pm-btn-primary" id="expOv3BtnPrimary" disabled>Start Your Trial</button>
-    <button class="pm-btn-secondary" id="expOv3BtnSecondary" disabled>No, Thanks</button>
-  </div>
-  <div class="pm-border"></div>
-  <div class="pm-notice"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="7" cy="7" r="6.5" stroke="#9CA3AF"/><rect x="6.3" y="6" width="1.4" height="4.5" rx=".7" fill="#9CA3AF"/><circle cx="7" cy="4.2" r=".8" fill="#9CA3AF"/></svg><p>Promotion valid until December 31, 2026.<br>Offer terms and duration are subject to change without prior notice.</p></div>
-</div></div>
+</div>
 
 <!-- SWITCHER -->
 <div class="switcher" id="switcher">
@@ -558,168 +790,100 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-
   var DISCOUNT = ['DEMO2026','MEDIT-DEMO','DEMO-LICENSE'];
   var currentApp = 'express';
+  var expDemoMode = false, i600DemoMode = false;
 
   /* ══════════════════════════════════════
-     POPUP CONFIG
-     각 팝업의 체크박스 항목, 버튼 ID를 한 곳에 정의
+     KEY TERMS CONTENT
   ══════════════════════════════════════ */
-  var POPUP_CFG = {
-    ov1:    { bodyId:'ov1Body',    primaryId:'ov1BtnPrimary',    secondaryId:null,              items: permanentItems('ov1') },
-    ov2:    { bodyId:'ov2Body',    primaryId:'ov2BtnPrimary',    secondaryId:'ov2BtnSecondary', items: trial3Items('ov2') },
-    ov3:    { bodyId:'ov3Body',    primaryId:'ov3BtnPrimary',    secondaryId:'ov3BtnSecondary', items: trial1Items('ov3') },
-    expOv1: { bodyId:'expOv1Body', primaryId:'expOv1BtnPrimary', secondaryId:null,              items: permanentItems('expOv1') },
-    expOv2: { bodyId:'expOv2Body', primaryId:'expOv2BtnPrimary', secondaryId:'expOv2BtnSecondary', items: trial3Items('expOv2') },
-    expOv3: { bodyId:'expOv3Body', primaryId:'expOv3BtnPrimary', secondaryId:'expOv3BtnSecondary', items: trial1Items('expOv3') }
-  };
+  // Used for: Code#1 Start Trial  |  Code#2,3 Start Trial
+  var TERMS_START = [
+    'This Software is licensed, not sold.',
+    'The Software is bound to a specific Medit scanner.',
+    'The license becomes effective upon activation.',
+    'The license is non-perpetual and tied to the lifecycle of the Licensed Device.',
+    'The Software may be updated or modified and may depend on third-party systems (e.g., iOS).',
+    'The Software may collect technical and usage data in accordance with MEDIT\'s Privacy Policy.',
+    'Data services (e.g., Medit Link) are governed by separate terms.'
+  ];
+  var CHECKS_START = [
+    'I acknowledge and understand the key terms, including that the Software is licensed (not sold), is bound to a specific Device Identifier, and becomes effective upon activation.'
+  ];
 
-  function permanentItems(pfx) {
-    return [
-      { id: pfx+'_tos',    req: true,  text: 'I agree to the Medit <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>.' },
-      { id: pfx+'_bind',   req: true,  text: 'I understand that this license is <strong>permanently granted</strong> to my verified scanner and cannot be transferred to another device or user.' },
-      { id: pfx+'_update', req: false, text: 'I acknowledge that Medit may update software features and system requirements over time.' }
-    ];
-  }
-  function trial3Items(pfx) {
-    return [
-      { id: pfx+'_tos',    req: true,  text: 'I agree to the Medit <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>.' },
-      { id: pfx+'_exp',    req: true,  text: 'I understand that this free trial will <strong>expire 90 days after activation</strong>, and a paid subscription will be required to continue.' },
-      { id: pfx+'_nocc',   req: false, text: 'I acknowledge that no automatic charge will occur at the end of the trial period.' }
-    ];
-  }
-  function trial1Items(pfx) {
-    return [
-      { id: pfx+'_tos',    req: true,  text: 'I agree to the Medit <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>.' },
-      { id: pfx+'_exp',    req: true,  text: 'I understand that this free trial will <strong>expire 30 days after activation</strong>, and a paid subscription will be required to continue.' },
-      { id: pfx+'_nocc',   req: false, text: 'I acknowledge that no automatic charge will occur at the end of the trial period.' }
-    ];
-  }
+  // Used for: Code#2,3 No Thanks (paid purchase on product page)
+  var TERMS_PAID = [
+    'This Software is licensed, not sold.',
+    'The Software is bound to a specific Medit scanner.',
+    'The license becomes effective upon activation.',
+    'Refunds are generally available only before activation.',
+    'The license is non-perpetual and tied to the lifecycle of the Licensed Device.',
+    'The Software may be updated or modified and may depend on third-party systems (e.g., iOS).',
+    'The Software may collect technical and usage data in accordance with MEDIT\'s Privacy Policy.',
+    'Data services (e.g., Medit Link) are governed by separate terms.'
+  ];
+  var CHECKS_PAID = [
+    'I agree to the General Terms, Purchase and Refund Terms, and the Software License Agreement.',
+    'I acknowledge and understand the key terms, including that the Software is licensed (not sold), is bound to a specific Device Identifier, becomes effective upon activation, and is subject to limited refund rights after activation.'
+  ];
 
-  /* 체크박스 렌더 + 변경 시 버튼 상태 갱신 */
-  function renderPopupPolicy(popupId) {
-    var cfg = POPUP_CFG[popupId];
-    var container = document.getElementById(cfg.bodyId);
-    container.innerHTML = '';
+  /* ══════════════════════════════════════
+     KEY TERMS RENDERER (product page)
+  ══════════════════════════════════════ */
+  function renderKeyTerms(scrollId, checksId, wrapId, terms, checks, idPrefix, onChangeCb) {
+    // Build terms list
+    var scroll = document.getElementById(scrollId);
+    var ul = document.createElement('ul');
+    terms.forEach(function(t) { var li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+    scroll.innerHTML = ''; scroll.appendChild(ul);
 
-    cfg.items.forEach(function(item, idx) {
-      if (idx > 0) {
-        var dv = document.createElement('div');
-        dv.className = 'pm-policy-divider';
-        container.appendChild(dv);
-      }
-      var row = document.createElement('div');
-      row.className = 'pm-policy-item';
-
-      var cb = document.createElement('input');
-      cb.type = 'checkbox';
-      cb.id = item.id;
-      cb.addEventListener('change', function() { evalPopupBtns(popupId); });
-
-      var lbl = document.createElement('label');
-      lbl.htmlFor = item.id;
-      lbl.innerHTML = item.text + (item.req ? ' <span class="req-badge">Required</span>' : '');
-
-      row.appendChild(cb);
-      row.appendChild(lbl);
-      container.appendChild(row);
+    // Build checkboxes
+    var checksEl = document.getElementById(checksId);
+    checksEl.innerHTML = '';
+    checks.forEach(function(text, i) {
+      var row = document.createElement('div'); row.className = 'key-terms-check-item';
+      var cb = document.createElement('input'); cb.type = 'checkbox'; cb.id = idPrefix + '_cb' + i;
+      cb.addEventListener('change', onChangeCb);
+      var lbl = document.createElement('label'); lbl.htmlFor = cb.id; lbl.textContent = text;
+      row.appendChild(cb); row.appendChild(lbl); checksEl.appendChild(row);
     });
 
-    evalPopupBtns(popupId); // 초기 상태 = 모두 disabled
+    document.getElementById(wrapId).style.display = 'block';
+    onChangeCb(); // initial eval
   }
 
-  function evalPopupBtns(popupId) {
-    var cfg = POPUP_CFG[popupId];
-    var allChecked = cfg.items.filter(function(i){ return i.req; }).every(function(i){
-      var el = document.getElementById(i.id);
-      return el && el.checked;
-    });
-    document.getElementById(cfg.primaryId).disabled = !allChecked;
-    if (cfg.secondaryId) document.getElementById(cfg.secondaryId).disabled = !allChecked;
+  function hideKeyTerms(wrapId, checksId) {
+    document.getElementById(wrapId).style.display = 'none';
+    document.getElementById(checksId).innerHTML = '';
   }
 
-  /* ── 팝업 열기/닫기 ── */
+  function allKTChecked(checksId, count) {
+    for (var i = 0; i < count; i++) {
+      var el = document.getElementById(checksId.replace('Checks','') + 'Checks_cb' + i);
+      // fallback: query all checkboxes in container
+    }
+    var cbs = document.getElementById(checksId).querySelectorAll('input[type="checkbox"]');
+    for (var j = 0; j < cbs.length; j++) { if (!cbs[j].checked) return false; }
+    return cbs.length > 0;
+  }
+
+  /* ══════════════════════════════════════
+     POPUP helpers
+  ══════════════════════════════════════ */
+  // serial ID map for left panel display
+  var SERIAL_DISPLAY = { ov1:'ov1Serial', ov2:'ov2Serial', ov3:'ov3Serial', expOv1:'expOv1Serial', expOv2:'expOv2Serial', expOv3:'expOv3Serial' };
+
   function closeAllPopups() {
-    Object.keys(POPUP_CFG).forEach(function(id){ document.getElementById(id).classList.remove('show'); });
+    ['ov1','ov2','ov3','expOv1','expOv2','expOv3'].forEach(function(id){
+      document.getElementById(id).classList.remove('show');
+    });
   }
-  function showPopup(id) {
+  function showPopup(id, serialVal) {
     closeAllPopups();
-    renderPopupPolicy(id); // 매번 새로 렌더 → 체크 초기화
+    // Show serial number in left panel
+    var sEl = document.getElementById(SERIAL_DISPLAY[id]);
+    if (sEl) sEl.textContent = serialVal || '—';
     document.getElementById(id).classList.add('show');
-  }
-
-  /* ── Page Policy (제품 페이지 유료 시리얼용) ── */
-  function buildPagePolicy(bodyId, items, evalFn) {
-    var container = document.getElementById(bodyId);
-    container.innerHTML = '';
-    items.forEach(function(item, idx) {
-      if (idx > 0) { var dv=document.createElement('div'); dv.className='policy-divider'; container.appendChild(dv); }
-      var row=document.createElement('div'); row.className='policy-item';
-      var cb=document.createElement('input'); cb.type='checkbox'; cb.id=item.id;
-      cb.addEventListener('change', evalFn);
-      var lbl=document.createElement('label'); lbl.htmlFor=item.id;
-      lbl.innerHTML=item.text+(item.req?' <span class="req-badge">Required</span>':'');
-      row.appendChild(cb); row.appendChild(lbl); container.appendChild(row);
-    });
-  }
-
-  var PAGE_POLICY_I600 = [
-    { id:'pg_i6_tos',   req:true,  text:'I agree to the Medit <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>.' },
-    { id:'pg_i6_noref', req:true,  text:'I understand that i600 Feature Upgrade is a <strong>digital license</strong> and is <strong>non-refundable</strong> once the purchase is completed.' },
-    { id:'pg_i6_bind',  req:false, text:'I acknowledge that this license is bound to the verified serial number and cannot be transferred or resold.' }
-  ];
-  var PAGE_POLICY_EXP = [
-    { id:'pg_ep_tos',   req:true,  text:'I agree to the Medit <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>.' },
-    { id:'pg_ep_noref', req:true,  text:'I understand that Medit Link Express (Mac) is a <strong>digital software license</strong> and is <strong>non-refundable</strong> once the purchase is completed.' },
-    { id:'pg_ep_bind',  req:false, text:'I acknowledge that this license is bound to the verified serial number and cannot be transferred or resold.' }
-  ];
-
-  /* Demo license flag */
-  var expDemoMode = false;
-
-  function evalI600PageCart() {
-    var ok = PAGE_POLICY_I600.filter(function(i){return i.req;}).every(function(i){var el=document.getElementById(i.id);return el&&el.checked;});
-    var b=document.getElementById('i600AddCartBtn'); b.classList.toggle('active',ok); b.disabled=!ok;
-  }
-  function evalExpPageCart() {
-    var reqOk = PAGE_POLICY_EXP.filter(function(i){return i.req;}).every(function(i){var el=document.getElementById(i.id);return el&&el.checked;});
-    var demoCb = document.getElementById('pg_ep_demo');
-    expDemoMode = demoCb ? demoCb.checked : false;
-    // price always stays $2,000 regardless of demo checkbox
-    var b=document.getElementById('expAddToCartBtn');
-    if(reqOk){b.classList.add('active');b.removeAttribute('disabled');}else{b.classList.remove('active');b.setAttribute('disabled','disabled');}
-  }
-  function showI600PagePolicy() {
-    buildPagePolicy('i600PolicyBody', PAGE_POLICY_I600, evalI600PageCart);
-    document.getElementById('i600PolicyWrap').style.display='block';
-    evalI600PageCart();
-  }
-  function showExpPagePolicy() {
-    buildPagePolicy('expPolicyBody', PAGE_POLICY_EXP, evalExpPageCart);
-    document.getElementById('expPolicyWrap').style.display='block';
-    // Demo checkbox row — injected after policy items
-    var body = document.getElementById('expPolicyBody');
-    var dv = document.createElement('div'); dv.className='policy-divider'; body.appendChild(dv);
-    var demoRow = document.createElement('div'); demoRow.className='policy-item'; demoRow.id='demoCheckRow';
-    var demoCb = document.createElement('input'); demoCb.type='checkbox'; demoCb.id='pg_ep_demo';
-    demoCb.addEventListener('change', function() {
-      expDemoMode = this.checked;
-      evalExpPageCart();
-    });
-    var demoLbl = document.createElement('label'); demoLbl.htmlFor='pg_ep_demo';
-    demoLbl.innerHTML='I have a <strong>Demo License</strong> — apply demo access (price: $0)';
-    demoRow.appendChild(demoCb); demoRow.appendChild(demoLbl); body.appendChild(demoRow);
-    expDemoMode = false;
-    evalExpPageCart();
-  }
-  function hideI600PagePolicy() { document.getElementById('i600PolicyWrap').style.display='none'; document.getElementById('i600PolicyBody').innerHTML=''; }
-  function hideExpPagePolicy() {
-    document.getElementById('expPolicyWrap').style.display='none';
-    document.getElementById('expPolicyBody').innerHTML='';
-    expDemoMode = false;
-    var p=document.getElementById('expPriceDisplay'); p.textContent='$2,000'; p.style.color='#111'; expPrice='$2,000.00'; expNum=2000;
-    var dw = document.getElementById('expDemoWrap'); if(dw) dw.remove();
   }
 
   /* ══════════════════════════════════════
@@ -728,8 +892,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var catalogBtn=document.getElementById('catalogBtn'), catalogMenu=document.getElementById('catalogMenu');
   catalogBtn.addEventListener('click',function(e){e.stopPropagation();catalogMenu.classList.toggle('open');});
   document.addEventListener('click',function(){catalogMenu.classList.remove('open');});
-
-  function showApp(app) {
+  function showApp(app){
     currentApp=app;
     document.getElementById('appI600').style.display    = app==='i600'    ?'block':'none';
     document.getElementById('appExpress').style.display = app==='express' ?'block':'none';
@@ -748,37 +911,102 @@ document.addEventListener('DOMContentLoaded', function() {
   var i600Price='$0.00',i600Num=0,i600Verified=null;
 
   function i600SetHint(msg,type){var el=document.getElementById('i600Hint'),ic=document.getElementById('i600StatusIcon');el.className='serial-hint';ic.className='serial-status-icon';ic.textContent='';if(type==='success'){el.classList.add('hint-success');ic.classList.add('show');ic.textContent='✅';}else if(type==='error'){el.classList.add('hint-error');ic.classList.add('show');ic.textContent='❌';}el.textContent=msg;}
-  function i600SetCartDirect(on){var b=document.getElementById('i600AddCartBtn');b.classList.toggle('active',on);b.disabled=!on;}
-  function i600ApplyFree(){var p=document.getElementById('i600PriceDisplay');p.textContent='$0';p.style.color='#059669';i600Price='$0.00';i600Num=0;i600SetCartDirect(true);closeAllPopups();}
-  function i600ApplyPaid(){var p=document.getElementById('i600PriceDisplay');p.textContent='$3,000';p.style.color='#111';i600Price='$3,000.00';i600Num=3000;i600SetCartDirect(true);closeAllPopups();}
+  function i600SetCart(on){var b=document.getElementById('i600AddCartBtn');b.classList.toggle('active',on);b.disabled=!on;}
+
+  function i600EvalKT() {
+    var ok = allKTChecked('i600KTChecks', CHECKS_PAID.length);
+    i600SetCart(ok);
+  }
+
+  function i600ResetPage() {
+    hideKeyTerms('i600KeyTermsWrap','i600KTChecks');
+    document.getElementById('i600DemoWrap').style.display='none';
+    document.getElementById('i600DemoCb').checked=false; i600DemoMode=false;
+    i600SetCart(false);
+  }
+
+  // After Start Trial: free access granted, show start-mode key terms for acknowledgement, then cart enabled
+  function i600ApplyFree() {
+    closeAllPopups();
+    var p=document.getElementById('i600PriceDisplay'); p.textContent='$0'; p.style.color='#059669';
+    i600Price='$0.00'; i600Num=0;
+    // Show start-mode key terms; once checked → enable cart
+    renderKeyTerms('i600KTScroll','i600KTChecks','i600KeyTermsWrap', TERMS_START, CHECKS_START, 'i600KT', function(){
+      i600SetCart(allKTChecked('i600KTChecks', CHECKS_START.length));
+    });
+    document.getElementById('i600DemoWrap').style.display='none';
+  }
+
+  // After No Thanks: paid purchase, show paid key terms
+  function i600ApplyPaid() {
+    closeAllPopups();
+    var p=document.getElementById('i600PriceDisplay'); p.textContent='$3,000'; p.style.color='#111';
+    i600Price='$3,000.00'; i600Num=3000;
+    renderKeyTerms('i600KTScroll','i600KTChecks','i600KeyTermsWrap', TERMS_PAID, CHECKS_PAID, 'i600KT', function(){
+      var ok = allKTChecked('i600KTChecks', CHECKS_PAID.length);
+      i600SetCart(ok);
+      // Show demo checkbox only after key terms shown
+      document.getElementById('i600DemoWrap').style.display='flex';
+    });
+    document.getElementById('i600DemoWrap').style.display='flex';
+    document.getElementById('i600DemoCb').checked=false; i600DemoMode=false;
+  }
+
+  document.getElementById('i600DemoCb').addEventListener('change',function(){ i600DemoMode=this.checked; });
 
   function i600RunCheck(){
     var val=document.getElementById('i600SerialInput').value.trim().toUpperCase();
-    hideI600PagePolicy(); i600SetCartDirect(false);
+    i600ResetPage();
+    var p=document.getElementById('i600PriceDisplay'); p.textContent='$3,000'; p.style.color='#111';
     if(!val){i600SetHint('Please enter a serial number.','error');return;}
     if(val.length<5){i600SetHint('Serial number is too short.','error');return;}
     if(val===i600Verified){i600SetHint('Already verified.','success');return;}
-    var btn=document.getElementById('i600CheckBtn'); btn.classList.add('loading'); btn.disabled=true; i600SetHint('Verifying…','');
+    var btn=document.getElementById('i600CheckBtn');btn.classList.add('loading');btn.disabled=true;i600SetHint('Verifying…','');
     setTimeout(function(){
-      btn.classList.remove('loading'); btn.disabled=false;
+      btn.classList.remove('loading');btn.disabled=false;
       var r=I600_MAP[val];
-      if(r==='ov1'||r==='ov2'||r==='ov3'){i600Verified=val;i600SetHint('Serial number verified successfully.','success');showPopup(r);}
-      else if(r==='paid'){i600Verified=val;i600SetHint('Serial number verified. Purchase required.','success');i600Price='$3,000.00';i600Num=3000;showI600PagePolicy();}
+      if(r==='ov1'||r==='ov2'||r==='ov3'){i600Verified=val;i600SetHint('Serial number verified successfully.','success');showPopup(r, val);}
+      else if(r==='paid'){
+        i600Verified=val;i600SetHint('Serial number verified.','success');
+        i600Price='$3,000.00';i600Num=3000;
+        renderKeyTerms('i600KTScroll','i600KTChecks','i600KeyTermsWrap', TERMS_PAID, CHECKS_PAID, 'i600KT', function(){
+          i600SetCart(allKTChecked('i600KTChecks', CHECKS_PAID.length));
+        });
+        document.getElementById('i600DemoWrap').style.display='flex';
+        document.getElementById('i600DemoCb').checked=false; i600DemoMode=false;
+      }
       else{i600Verified=null;i600SetHint('Invalid serial number.','error');}
     },700);
   }
   document.getElementById('i600SerialInput').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();i600RunCheck();}});
-  document.getElementById('i600SerialInput').addEventListener('input',function(){if(i600Verified){i600Verified=null;document.getElementById('i600StatusIcon').className='serial-status-icon';i600SetHint('Please check the serial number of your scanner.','');i600SetCartDirect(false);hideI600PagePolicy();}});
+  document.getElementById('i600SerialInput').addEventListener('input',function(){
+    if(i600Verified){i600Verified=null;document.getElementById('i600StatusIcon').className='serial-status-icon';i600SetHint('Please check the serial number of your scanner.','');i600ResetPage();}
+  });
   document.getElementById('i600CheckBtn').addEventListener('click',i600RunCheck);
 
   function i600GoProduct(){document.getElementById('i600ProductPage').style.display='block';document.getElementById('i600CartPage').style.display='none';document.getElementById('i600CheckoutPage').style.display='none';document.getElementById('switcher').style.display='flex';window.scrollTo(0,0);}
   function i600GoCart(){document.getElementById('i600ProductPage').style.display='none';document.getElementById('i600CartPage').style.display='block';document.getElementById('i600CheckoutPage').style.display='none';document.getElementById('i600CartItemPrice').textContent=i600Price;document.getElementById('i600CartSubtotal').textContent=i600Price;document.getElementById('cartBadge').classList.add('show');document.getElementById('switcher').style.display='none';window.scrollTo(0,0);}
-  function i600GoCheckout(){document.getElementById('i600CartPage').style.display='none';document.getElementById('i600CheckoutPage').style.display='block';document.getElementById('switcher').style.display='none';document.getElementById('i600SummaryItemPrice').textContent=i600Price;document.getElementById('i600SummarySubtotal').textContent=i600Price;document.getElementById('i600SummaryTotal').textContent=i600Price;document.getElementById('i600SummaryDiscountRow').style.display='none';var show=i600Num>0;document.getElementById('i600DiscountSection').style.display=show?'block':'none';document.getElementById('i600DiscountInput').value='';document.getElementById('i600DiscountMsg').textContent='';document.getElementById('i600DiscountInner').style.display=show?'block':'none';document.getElementById('i600DiscountArrow').style.transform=show?'rotate(90deg)':'';window.scrollTo(0,0);}
+  function i600GoCheckout(){
+    document.getElementById('i600CartPage').style.display='none';document.getElementById('i600CheckoutPage').style.display='block';document.getElementById('switcher').style.display='none';
+    document.getElementById('i600SummaryItemPrice').textContent=i600Price;document.getElementById('i600SummarySubtotal').textContent=i600Price;document.getElementById('i600SummaryTotal').textContent=i600Price;
+    document.getElementById('i600SummaryDiscountRow').style.display='none';
+    var show=i600DemoMode;
+    document.getElementById('i600DiscountSection').style.display=show?'block':'none';
+    document.getElementById('i600DiscountInput').value='';document.getElementById('i600DiscountMsg').textContent='';
+    document.getElementById('i600DiscountInner').style.display=show?'block':'none';
+    document.getElementById('i600DiscountArrow').style.transform=show?'rotate(90deg)':'';
+    window.scrollTo(0,0);
+  }
   document.getElementById('i600AddCartBtn').addEventListener('click',function(){if(this.classList.contains('active'))i600GoCart();});
   document.getElementById('i600ContinueBtn').addEventListener('click',i600GoProduct);
   document.getElementById('i600CartCheckoutBtn').addEventListener('click',i600GoCheckout);
   document.getElementById('i600CheckoutBackBtn').addEventListener('click',i600GoCart);
-  document.getElementById('i600RemoveBtn').addEventListener('click',function(){document.getElementById('cartBadge').classList.remove('show');i600GoProduct();i600SetCartDirect(false);i600Verified=null;var p=document.getElementById('i600PriceDisplay');p.textContent='$3,000';p.style.color='#111';i600SetHint('Please check the serial number of your scanner.','');document.getElementById('i600StatusIcon').className='serial-status-icon';hideI600PagePolicy();});
+  document.getElementById('i600RemoveBtn').addEventListener('click',function(){
+    document.getElementById('cartBadge').classList.remove('show');i600GoProduct();i600Verified=null;
+    document.getElementById('i600PriceDisplay').textContent='$3,000';document.getElementById('i600PriceDisplay').style.color='#111';
+    i600SetHint('Please check the serial number of your scanner.','');document.getElementById('i600StatusIcon').className='serial-status-icon';
+    i600ResetPage();i600Price='$0.00';i600Num=0;i600DemoMode=false;
+  });
   document.getElementById('i600DiscountToggle').addEventListener('click',function(){var inn=document.getElementById('i600DiscountInner'),arr=document.getElementById('i600DiscountArrow'),open=inn.style.display==='block';inn.style.display=open?'none':'block';arr.style.transform=open?'':'rotate(90deg)';});
   document.getElementById('i600DiscountApply').addEventListener('click',function(){var val=document.getElementById('i600DiscountInput').value.trim().toUpperCase(),msg=document.getElementById('i600DiscountMsg'),row=document.getElementById('i600SummaryDiscountRow');if(DISCOUNT.indexOf(val)!==-1){msg.textContent='Discount applied! 100% off.';msg.style.color='#059669';row.style.display='flex';document.getElementById('i600SummaryDiscountValue').textContent='-$'+i600Num.toLocaleString()+'.00';document.getElementById('i600SummaryTotal').textContent='$0.00';}else{msg.textContent='Invalid discount code.';msg.style.color='#DC2626';row.style.display='none';document.getElementById('i600SummaryTotal').textContent=i600Price;}});
   document.getElementById('i600DiscountInput').addEventListener('input',function(){document.getElementById('i600DiscountMsg').textContent='';document.getElementById('i600SummaryDiscountRow').style.display='none';document.getElementById('i600SummaryTotal').textContent=i600Price;});
@@ -786,15 +1014,14 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('i600CardExpiry').addEventListener('input',function(){var v=this.value.replace(/\D/g,'').substring(0,4);if(v.length>=3)v=v.substring(0,2)+' / '+v.substring(2);this.value=v;});
   document.getElementById('i600CardCvv').addEventListener('input',function(){this.value=this.value.replace(/\D/g,'').substring(0,4);});
 
-  /* i600 popup buttons */
   document.getElementById('ov1BtnPrimary').addEventListener('click',i600ApplyFree);
-  document.getElementById('pm-close-ov1').addEventListener('click',function(){closeAllPopups();i600SetCartDirect(false);});
+  document.getElementById('pm-close-ov1').addEventListener('click',function(){closeAllPopups();});
   document.getElementById('ov2BtnPrimary').addEventListener('click',i600ApplyFree);
   document.getElementById('ov2BtnSecondary').addEventListener('click',i600ApplyPaid);
-  document.getElementById('pm-close-ov2').addEventListener('click',function(){closeAllPopups();i600SetCartDirect(false);});
+  document.getElementById('pm-close-ov2').addEventListener('click',function(){closeAllPopups();});
   document.getElementById('ov3BtnPrimary').addEventListener('click',i600ApplyFree);
   document.getElementById('ov3BtnSecondary').addEventListener('click',i600ApplyPaid);
-  document.getElementById('pm-close-ov3').addEventListener('click',function(){closeAllPopups();i600SetCartDirect(false);});
+  document.getElementById('pm-close-ov3').addEventListener('click',function(){closeAllPopups();});
 
   /* ══════════════════════════════════════
      EXPRESS
@@ -803,77 +1030,82 @@ document.addEventListener('DOMContentLoaded', function() {
   var expPrice='$0.00',expNum=0;
 
   function expSetHint(msg,color){var el=document.getElementById('expSerialHint');el.textContent=msg;el.style.color=color;}
-  function expSetCartDirect(on){var b=document.getElementById('expAddToCartBtn');if(on){b.classList.add('active');b.removeAttribute('disabled');}else{b.classList.remove('active');b.setAttribute('disabled','disabled');}}
-  function expApplyFree(){var p=document.getElementById('expPriceDisplay');p.textContent='$0';p.style.color='#059669';expPrice='$0.00';expNum=0;expSetCartDirect(true);closeAllPopups();}
-  /* Demo checkbox 노출 (No Thanks 클릭 후) */
-  function showDemoCheckbox(app) {
-    var wrapId  = app === 'i600' ? 'i600DemoWrap'  : 'expDemoWrap';
-    var wrap = document.getElementById(wrapId);
-    if (wrap) { wrap.style.display = 'flex'; return; }
-    // 처음 생성
-    wrap = document.createElement('div');
-    wrap.id = wrapId;
-    wrap.style.cssText = 'display:flex;align-items:flex-start;gap:9px;padding:10px 14px;background:#FFFBEB;border:1.5px solid #FDE68A;border-radius:10px;margin-bottom:14px;';
-    var cb = document.createElement('input');
-    cb.type = 'checkbox'; cb.id = (app==='i600'?'i6':'ep') + '_demo_cb';
-    cb.style.cssText = 'margin-top:2px;width:14px;height:14px;flex-shrink:0;accent-color:#D97706;cursor:pointer;';
-    cb.addEventListener('change', function() {
-      expDemoMode = this.checked;
+  function expSetCart(on){var b=document.getElementById('expAddToCartBtn');if(on){b.classList.add('active');b.removeAttribute('disabled');}else{b.classList.remove('active');b.setAttribute('disabled','disabled');}}
+
+  function expResetPage(){
+    hideKeyTerms('expKeyTermsWrap','expKTChecks');
+    document.getElementById('expDemoWrap').style.display='none';
+    document.getElementById('expDemoCb').checked=false; expDemoMode=false;
+    expSetCart(false);
+  }
+
+  function expApplyFree(){
+    closeAllPopups();
+    var p=document.getElementById('expPriceDisplay'); p.textContent='$0'; p.style.color='#059669';
+    expPrice='$0.00'; expNum=0;
+    renderKeyTerms('expKTScroll','expKTChecks','expKeyTermsWrap', TERMS_START, CHECKS_START, 'expKT', function(){
+      expSetCart(allKTChecked('expKTChecks', CHECKS_START.length));
     });
-    var lbl = document.createElement('label');
-    lbl.htmlFor = cb.id;
-    lbl.style.cssText = 'font-size:12px;color:#374151;line-height:1.55;cursor:pointer;';
-    lbl.innerHTML = '🎟️ I have a <strong>Demo License</strong> — I will enter the demo code at checkout.';
-    wrap.appendChild(cb); wrap.appendChild(lbl);
-    // ADD TO CART 버튼 바로 앞에 삽입
-    var cartBtn = document.getElementById(app==='i600' ? 'i600AddCartBtn' : 'expAddToCartBtn');
-    cartBtn.parentNode.insertBefore(wrap, cartBtn);
+    document.getElementById('expDemoWrap').style.display='none';
   }
 
   function expApplyPaid(){
-    var p=document.getElementById('expPriceDisplay');
-    p.textContent='$2,000'; p.style.color='#111';
-    expPrice='$2,000.00'; expNum=2000;
-    expSetCartDirect(true);
     closeAllPopups();
-    showDemoCheckbox('express');
+    var p=document.getElementById('expPriceDisplay'); p.textContent='$2,000'; p.style.color='#111';
+    expPrice='$2,000.00'; expNum=2000;
+    renderKeyTerms('expKTScroll','expKTChecks','expKeyTermsWrap', TERMS_PAID, CHECKS_PAID, 'expKT', function(){
+      expSetCart(allKTChecked('expKTChecks', CHECKS_PAID.length));
+    });
+    document.getElementById('expDemoWrap').style.display='flex';
+    document.getElementById('expDemoCb').checked=false; expDemoMode=false;
   }
+
+  document.getElementById('expDemoCb').addEventListener('change',function(){ expDemoMode=this.checked; });
 
   document.getElementById('expCheckBtn').addEventListener('click',function(){
     var val=document.getElementById('expSerialInput').value.trim().toUpperCase();
-    hideExpPagePolicy(); expSetCartDirect(false);
+    expResetPage();
+    var p=document.getElementById('expPriceDisplay'); p.textContent='$2,000'; p.style.color='#111';
     if(!val){expSetHint('Please enter a serial number.','#DC2626');return;}
     var r=EXP_MAP[val];
-    if(r==='expOv1'||r==='expOv2'||r==='expOv3'){expSetHint('Serial number verified.','#555');showPopup(r);}
-    else if(r==='paid'){expSetHint('Serial number verified.','#059669');expPrice='$2,000.00';expNum=2000;showExpPagePolicy();}
+    if(r==='expOv1'||r==='expOv2'||r==='expOv3'){expSetHint('Serial number verified.','#555');showPopup(r, val);}
+    else if(r==='paid'){
+      expSetHint('Serial number verified.','#059669');
+      expPrice='$2,000.00';expNum=2000;
+      renderKeyTerms('expKTScroll','expKTChecks','expKeyTermsWrap', TERMS_PAID, CHECKS_PAID, 'expKT', function(){
+        expSetCart(allKTChecked('expKTChecks', CHECKS_PAID.length));
+      });
+      document.getElementById('expDemoWrap').style.display='flex';
+      document.getElementById('expDemoCb').checked=false; expDemoMode=false;
+    }
     else{expSetHint('Invalid serial number.','#DC2626');}
   });
   document.getElementById('expSerialInput').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();document.getElementById('expCheckBtn').click();}});
+  document.getElementById('expSerialInput').addEventListener('input',function(){expResetPage();expSetHint('Please check the serial number of your scanner.','#555');});
 
   function expGoProduct(){document.getElementById('expProductPage').style.display='block';document.getElementById('expCartPage').style.display='none';document.getElementById('expCheckoutPage').style.display='none';document.getElementById('switcher').style.display='flex';window.scrollTo(0,0);}
   function expGoCart(){document.getElementById('expProductPage').style.display='none';document.getElementById('expCartPage').style.display='block';document.getElementById('expCheckoutPage').style.display='none';document.getElementById('expCartItemPrice').textContent=expPrice;document.getElementById('expCartSubtotal').textContent=expPrice;document.getElementById('cartBadge').classList.add('show');document.getElementById('switcher').style.display='none';window.scrollTo(0,0);}
   function expGoCheckout(){
-    document.getElementById('expCartPage').style.display='none';
-    document.getElementById('expCheckoutPage').style.display='block';
-    document.getElementById('switcher').style.display='none';
-    document.getElementById('expSummaryItemPrice').textContent=expPrice;
-    document.getElementById('expSummarySubtotal').textContent=expPrice;
-    document.getElementById('expSummaryTotal').textContent=expPrice;
+    document.getElementById('expCartPage').style.display='none';document.getElementById('expCheckoutPage').style.display='block';document.getElementById('switcher').style.display='none';
+    document.getElementById('expSummaryItemPrice').textContent=expPrice;document.getElementById('expSummarySubtotal').textContent=expPrice;document.getElementById('expSummaryTotal').textContent=expPrice;
     document.getElementById('expSummaryDiscountRow').style.display='none';
-    // discount code 필드는 demo mode일 때만 표시
-    var showDiscount = expDemoMode;
-    document.getElementById('expDiscountSection').style.display=showDiscount?'block':'none';
-    document.getElementById('expDiscountInput').value='';
-    document.getElementById('expDiscountMsg').textContent='';
-    document.getElementById('expDiscountInner').style.display=showDiscount?'block':'none';
-    document.getElementById('expDiscountArrow').style.transform=showDiscount?'rotate(90deg)':'';
+    var show=expDemoMode;
+    document.getElementById('expDiscountSection').style.display=show?'block':'none';
+    document.getElementById('expDiscountInput').value='';document.getElementById('expDiscountMsg').textContent='';
+    document.getElementById('expDiscountInner').style.display=show?'block':'none';
+    document.getElementById('expDiscountArrow').style.transform=show?'rotate(90deg)':'';
     window.scrollTo(0,0);
   }
   document.getElementById('expAddToCartBtn').addEventListener('click',function(){if(this.classList.contains('active'))expGoCart();});
   document.getElementById('expContinueBtn').addEventListener('click',expGoProduct);
   document.getElementById('expCartCheckoutBtn').addEventListener('click',expGoCheckout);
   document.getElementById('expCheckoutBackBtn').addEventListener('click',expGoCart);
-  document.getElementById('expRemoveBtn').addEventListener('click',function(){document.getElementById('cartBadge').classList.remove('show');expGoProduct();expSetCartDirect(false);var p=document.getElementById('expPriceDisplay');p.textContent='$2,000';p.style.color='#111';expSetHint('Please check the serial number of your scanner.','#555');hideExpPagePolicy();});
+  document.getElementById('expRemoveBtn').addEventListener('click',function(){
+    document.getElementById('cartBadge').classList.remove('show');expGoProduct();
+    document.getElementById('expPriceDisplay').textContent='$2,000';document.getElementById('expPriceDisplay').style.color='#111';
+    expSetHint('Please check the serial number of your scanner.','#555');
+    expResetPage();expPrice='$0.00';expNum=0;expDemoMode=false;
+  });
   document.getElementById('expDiscountToggle').addEventListener('click',function(){var inn=document.getElementById('expDiscountInner'),arr=document.getElementById('expDiscountArrow'),open=inn.style.display==='block';inn.style.display=open?'none':'block';arr.style.transform=open?'':'rotate(90deg)';});
   document.getElementById('expDiscountApply').addEventListener('click',function(){var val=document.getElementById('expDiscountInput').value.trim().toUpperCase(),msg=document.getElementById('expDiscountMsg'),row=document.getElementById('expSummaryDiscountRow');if(DISCOUNT.indexOf(val)!==-1){msg.textContent='Discount applied! 100% off.';msg.style.color='#059669';row.style.display='flex';document.getElementById('expSummaryDiscountValue').textContent='-$'+expNum.toLocaleString()+'.00';document.getElementById('expSummaryTotal').textContent='$0.00';}else{msg.textContent='Invalid discount code.';msg.style.color='#DC2626';row.style.display='none';document.getElementById('expSummaryTotal').textContent=expPrice;}});
   document.getElementById('expDiscountInput').addEventListener('input',function(){document.getElementById('expDiscountMsg').textContent='';document.getElementById('expSummaryDiscountRow').style.display='none';document.getElementById('expSummaryTotal').textContent=expPrice;});
@@ -881,25 +1113,23 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('expCardExpiry').addEventListener('input',function(){var v=this.value.replace(/\D/g,'').substring(0,4);if(v.length>=3)v=v.substring(0,2)+' / '+v.substring(2);this.value=v;});
   document.getElementById('expCardCvv').addEventListener('input',function(){this.value=this.value.replace(/\D/g,'').substring(0,4);});
 
-  /* Express popup buttons */
   document.getElementById('expOv1BtnPrimary').addEventListener('click',expApplyFree);
-  document.getElementById('pm-close-expOv1').addEventListener('click',function(){closeAllPopups();expSetCartDirect(false);});
+  document.getElementById('pm-close-expOv1').addEventListener('click',function(){closeAllPopups();});
   document.getElementById('expOv2BtnPrimary').addEventListener('click',expApplyFree);
   document.getElementById('expOv2BtnSecondary').addEventListener('click',expApplyPaid);
-  document.getElementById('pm-close-expOv2').addEventListener('click',function(){closeAllPopups();expSetCartDirect(false);});
+  document.getElementById('pm-close-expOv2').addEventListener('click',function(){closeAllPopups();});
   document.getElementById('expOv3BtnPrimary').addEventListener('click',expApplyFree);
   document.getElementById('expOv3BtnSecondary').addEventListener('click',expApplyPaid);
-  document.getElementById('pm-close-expOv3').addEventListener('click',function(){closeAllPopups();expSetCartDirect(false);});
+  document.getElementById('pm-close-expOv3').addEventListener('click',function(){closeAllPopups();});
 
   /* cart icon */
   document.getElementById('cartIconWrap').addEventListener('click',function(){if(!document.getElementById('cartBadge').classList.contains('show'))return;if(currentApp==='i600')i600GoCart();else expGoCart();});
 
   /* switcher */
   document.getElementById('swOff').addEventListener('click',closeAllPopups);
-  document.getElementById('sw1').addEventListener('click',function(){showPopup(currentApp==='i600'?'ov1':'expOv1');});
-  document.getElementById('sw2').addEventListener('click',function(){showPopup(currentApp==='i600'?'ov2':'expOv2');});
-  document.getElementById('sw3').addEventListener('click',function(){showPopup(currentApp==='i600'?'ov3':'expOv3');});
-
+  document.getElementById('sw1').addEventListener('click',function(){showPopup(currentApp==='i600'?'ov1':'expOv1','DEMO-SN-001');});
+  document.getElementById('sw2').addEventListener('click',function(){showPopup(currentApp==='i600'?'ov2':'expOv2','DEMO-SN-002');});
+  document.getElementById('sw3').addEventListener('click',function(){showPopup(currentApp==='i600'?'ov3':'expOv3','DEMO-SN-003');});
 });
 </script>
 </body>
