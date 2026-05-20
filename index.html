@@ -850,6 +850,13 @@ document.addEventListener('DOMContentLoaded', function() {
           else { p.textContent = cfg.paidPriceText; p.style.color = '#111'; }
           state.price = cfg.paidPriceVal; state.num = cfg.paidNum;
           showKT('paid', true);
+        } else if (r === 'free') {
+          setHint('Serial number verified.', '#059669');
+          var p2 = el(cfg.priceDisplay);
+          if (cfg.hidePrice) { p2.style.display = 'none'; p2.textContent = ''; }
+          else { p2.textContent = cfg.freePriceText; p2.style.color = '#059669'; }
+          state.price = cfg.freePriceVal || '$0.00'; state.num = 0;
+          showKT('start', cfg.hidePrice ? true : false);
         } else {
           setHint('Serial number verified successfully.', '#059669');
           showPopup(r, val);
@@ -1043,7 +1050,7 @@ document.addEventListener('DOMContentLoaded', function() {
     defaultPriceText:'$1,200', paidPriceText:'$1,200', paidPriceVal:'$1,200.00', paidNum:1200,
     freePriceText:'$0', freePriceVal:'$0.00',
     serialMap:{
-      'LAUNCH-PROMOTION':'riOv1',
+      'LAUNCH-PROMOTION':'free',
       'SN-TRIAL-3MONTHS':'riOv2','I900-0001':'riOv2','I900C-0001':'riOv2',
       'SN-PAID':'paid','I900M-FREE':'paid','FREE-0001':'paid',
       'SN-TRIAL-1MONTH':'riOv3','I900M-TRIAL':'riOv3','TRIAL-0001':'riOv3'
